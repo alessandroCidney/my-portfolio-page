@@ -52,6 +52,7 @@ export function SkillList() {
         skillsList.map((itemData, itemIndex) => (
           <SkillCard
             key={`itemIndex${itemIndex}`}
+            index={itemIndex}
             {...itemData}
           />
         ))

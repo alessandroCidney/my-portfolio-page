@@ -23,6 +23,8 @@ export function ProjectsCarousel(props: ProjectsCarouselProps) {
             <ProjectCard
               key={`itemIndex${itemIndex}`}
               {...itemData}
+              reversed={props.reversed}
+              index={itemIndex}
             />
           ))
         }

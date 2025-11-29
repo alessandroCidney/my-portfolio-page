@@ -1,10 +1,16 @@
-import Image from 'next/image'
+'use client'
 
-import styles from './styles.module.scss'
+import Image from 'next/image'
+import Link from 'next/link'
+
+import { useState } from 'react'
+
+import { motion } from 'motion/react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
-import Link from 'next/link'
+
+import styles from './styles.module.scss'
 
 export interface ProjectCardProps {
   title: string
@@ -12,11 +18,29 @@ export interface ProjectCardProps {
 
   imageSrc: string
   projectUrl: string
+
+  reversed?: boolean
+  index: number
 }
 
 export function ProjectCard(props: ProjectCardProps) {
+  const [hovering, setHovering] = useState(false)
+
   return (
-    <article className={styles.projectCard}>
+    <motion.article
+      className={styles.projectCard}
+      initial={{
+        opacity: 0,
+        x: props.reversed ? 30 : -30,
+      }}
+      whileInView={{
+        opacity: 1,
+        x: 0,
+      }}
+      transition={{
+        delay: 0.05 * props.index,
+      }}
+    >
       <header>
         <div className={styles.imageBackgroundContainer}>
           <div className={styles.imageContainer}>
@@ -43,16 +67,45 @@ export function ProjectCard(props: ProjectCardProps) {
         href={props.projectUrl}
         target='_blank'
         className={styles.actionsContainer}
+        onMouseEnter={() => setHovering(true)}
+        onMouseLeave={() => setHovering(false)}
       >
-        <div>
-          <FontAwesomeIcon
-            icon={faArrowRight}
-            style={{
-              transform: 'rotate(-45deg)',
-            }}
-          />
-        </div>
+        {
+          hovering && (
+            <motion.div
+              className={styles.animatedArea}
+              initial={{
+                opacity: 0,
+              }}
+              animate={{
+                opacity: 1,
+              }}
+            >
+              <motion.div
+                className={styles.iconContainer}
+                initial={{
+                  opacity: 0,
+                  scale: 0,
+                }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                }}
+                whileHover={{
+                  scale: 1.1,
+                }}
+              >
+                <FontAwesomeIcon
+                  icon={faArrowRight}
+                  style={{
+                    transform: 'rotate(-45deg)',
+                  }}
+                />
+              </motion.div>
+            </motion.div>
+          )
+        }
       </Link>
-    </article>
+    </motion.article>
   )
 }

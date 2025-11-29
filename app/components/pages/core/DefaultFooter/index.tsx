@@ -2,6 +2,8 @@
 
 import Link from 'next/link'
 
+import { motion } from 'motion/react'
+
 import styles from './styles.module.scss'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -24,25 +26,39 @@ export function DefaultFooter() {
           juntos?
         </h2>
 
-        <DefaultButton
-          href={process.env.NEXT_PUBLIC_LINKEDIN_URL}
-          target='_blank'
-          style={{
-            backgroundColor: 'var(--theme-primary-color)',
-            minWidth: '200px',
-            fontSize: '5rem',
+        <motion.div
+          initial={{
+            opacity: 0,
+            scale: 0,
           }}
-          variant='flat'
-          link
-          icon
+          whileInView={{
+            opacity: 1,
+            scale: 1,
+          }}
+          whileHover={{
+            scale: 1.1,
+          }}
         >
-          <FontAwesomeIcon
-            icon={faArrowRight}
+          <DefaultButton
+            href={process.env.NEXT_PUBLIC_LINKEDIN_URL}
+            target='_blank'
             style={{
-              transform: 'translate(-50%, -50%) rotate(-45deg)',
+              backgroundColor: 'var(--theme-primary-color)',
+              minWidth: '200px',
+              fontSize: '5rem',
             }}
-          />
-        </DefaultButton>
+            variant='flat'
+            link
+            icon
+          >
+            <FontAwesomeIcon
+              icon={faArrowRight}
+              style={{
+                transform: 'translate(-50%, -50%) rotate(-45deg)',
+              }}
+            />
+          </DefaultButton>
+        </motion.div>
       </div>
 
       <div className={styles.footerContent}>
