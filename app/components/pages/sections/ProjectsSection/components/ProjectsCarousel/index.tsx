@@ -3,7 +3,7 @@ import styles from './styles.module.scss'
 import { ProjectCard, ProjectCardProps } from './components/ProjectCard'
 
 interface ProjectsCarouselProps {
-  items: ProjectCardProps[]
+  items: Omit<ProjectCardProps, 'index' | 'reversed'>[]
 
   reversed?: boolean
 }
