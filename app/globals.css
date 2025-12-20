@@ -1,77 +1,17 @@
-/* @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import "tailwindcss";
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: #0F0097;
+  --color-primary-darken-1: #0a0068;
+
+  --color-secondary: #0022FF;
 }
 
+/* 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 } */
 
-:root {
-  --theme-primary-color: #0509DE;
-  --theme-primary-darken-1-color: #000045;
-  --theme-primary-darken-2-color: #010128;
-
-  --header-height: 70px;
-}
-
-* {
-  padding: 0;
-  margin: 0;
-
-  font-family: Inter, sans-serif;
-
-  box-sizing: border-box;
-
-  scroll-behavior: smooth !important;
-}
-
-body {
-  background-color: var(--theme-primary-darken-2-color);
-  color: #fff;
-}
-
-* {
-  letter-spacing: -0.03em;
-
-  &::-webkit-scrollbar {
-    width: 10px;
-
-    background-color: rgba(255, 255, 255, 0.1) !important;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.5);
-
-    border-radius: 9999px;
-  }
-}
-
-p {
-  line-height: 1.5;
-  letter-spacing: -0.01em;
-}
-
-@media (max-width: 960px) {
-  &:root {
-    font-size: 0.8rem;
-  }
-}

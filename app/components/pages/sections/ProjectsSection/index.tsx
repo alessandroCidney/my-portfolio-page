@@ -1,22 +1,36 @@
-import styles from './styles.module.scss'
-import { ProjectsCarousel } from './components/ProjectsCarousel'
+import { ProjectCard } from './components/ProjectCard'
 
 export function ProjectsSection() {
-  const mainProjectsArr = [
+  const projectsArr = [
     {
-      title: 'Document Analyzer',
+      title: 'Santo iD',
+      company: 'SantoDigital',
       description: 'Plataforma para análise e validação de documentos utilizando inteligência artificial.',
 
-      imageSrc: '/images/illustrations/document-analysis.svg',
-      projectUrl: process.env.NEXT_PUBLIC_DOCUMENT_ANALYZER_URL ?? '',
+      companyColor: 'text-fuchsia-600',
+      gradient: 'bg-linear-150 from-fuchsia-600 to-violet-800',
+
+      url: process.env.NEXT_PUBLIC_DOCUMENT_ANALYZER_URL ?? '',
     },
-    
     {
-      title: 'AI Assistant',
+      title: 'Santo AI',
+      company: 'SantoDigital',
       description: 'Assistente baseado em IA generativa, com funções diversas como geração de texto, imagens e código.',
 
-      imageSrc: '/images/illustrations/ai-assistant.svg',
-      projectUrl: process.env.NEXT_PUBLIC_AI_ASSISTANT_URL ?? '',
+      companyColor: 'text-blue-700',
+      gradient: 'bg-linear-150 from-blue-700 to-sky-500',
+
+      url: process.env.NEXT_PUBLIC_AI_ASSISTANT_URL ?? '',
+    },
+    {
+      title: 'Santo iD Saúde',
+      company: 'SantoDigital',
+      description: 'Assistente baseado em IA generativa, com funções diversas como geração de texto, imagens e código.',
+
+      companyColor: 'text-sky-500',
+      gradient: 'bg-linear-150 from-sky-500 to-cyan-400',
+
+      url: process.env.NEXT_PUBLIC_AI_ASSISTANT_URL ?? '',
     },
   ]
 
@@ -40,43 +54,27 @@ export function ProjectsSection() {
   return (
     <section
       id='projects'
-      className={styles.projectsSection}
+      className='z-9 relative flex flex-col gap-16 items-center justify-center pt-80 pb-40 transform-[translateY(-160px)] bg-gray-100'
     >
-      <div className={styles.contentContainer}>
-        <div className={styles.titleContainer}>
-          <h2>
-            Projetos principais
-          </h2>
+      <header className='text-center'>
+        <h2 className='font-bold tracking-tight text-3xl'>
+          Projetos e empresas
+        </h2>
 
-          <p>
-            Veja alguns dos websites em que trabalhei.
-          </p>
-        </div>
-
-        <div className={styles.projectsCarousel}>
-          <ProjectsCarousel
-            items={mainProjectsArr}
-          />
-        </div>
-      </div>
-
-      <div className={`${styles.contentContainer} ${styles.reversed}`}>
-        <div className={styles.titleContainer}>
-          <h2>
-            Projetos pessoais
-          </h2>
-
-          <p>
-            Acompanhe meus projetos pessoais mais recentes.
-          </p>
-        </div>
-
-        <div className={styles.projectsCarousel}>
-          <ProjectsCarousel
-            items={personalProjectsArr}
-            reversed
-          />
-        </div>
+        <p className='font-extrabold tracking-tight text-7xl'>
+          Veja onde trabalhei
+        </p>
+      </header>
+      
+      <div className='flex items-center justify-center gap-12'>
+        {
+          projectsArr.map((projectData, projectIndex) => (
+            <ProjectCard
+              key={`projectKey${projectIndex}`}
+              {...projectData}
+            />
+          ))
+        }
       </div>
     </section>
   )

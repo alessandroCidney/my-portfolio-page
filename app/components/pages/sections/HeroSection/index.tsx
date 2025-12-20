@@ -1,45 +1,37 @@
 import Image from 'next/image'
 
 import styles from './styles.module.scss'
-
-import { DefaultButton } from '../../../commons/DefaultButton'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
+import { DefaultButton } from '@/app/components/commons/DefaultButton'
 
 export function HeroSection() {
   return (
-    <section className={styles.heroSection}>
-      <div className={styles.contentContainer}>
-        <div className={styles.developerImageContainer}>
-          <Image
-            alt='Developer'
-            src='/images/texts/developer.png'
-            fill
-          />
-        </div>
+    <section className='z-10 relative h-[90dvh] max-h-300 rounded-b-[150px] bg-white'>
+      <div className='flex items-center gap-16 w-350 max-w-[80vw] h-full mx-auto'>
+        <div>
+          <h2 className='flex flex-col mb-6'>
+            <span>Olá! Sou <span className='font-bold'>Alessandro Cídney</span> um</span>
 
-        <div className={styles.textContainer}>
-          <p>
-            Olá, bem vindo ao meu portfólio! Me chamo <strong>Alessandro Cídney</strong>, e sou um <strong>desenvolvedor front-end</strong> apaixonado por construir interfaces incríveis.
+            <span className='text-8xl font-extrabold tracking-tight'>Front-end</span>
+
+            <span className='text-6xl font-extrabold tracking-tight'>Developer</span>
+          </h2>
+
+          <p className='mb-6'>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum neque dignissimos rerum aliquam ipsa praesentium ducimus quos enim, assumenda illo exercitationem? Repellendus, vel facere. Optio quisquam quibusdam consequuntur ab voluptatum?
+            Iure accusamus, nesciunt quam quaerat et modi quo error quis magnam deleniti unde voluptatibus sint accusantium corporis! Quae, est labore beatae totam reprehenderit atque odit soluta ut magnam. Dolorem, consequuntur.
+            Ab, dolor eum, quaerat non iusto modi animi eius dignissimos corporis totam, eligendi incidunt provident? Explicabo provident a obcaecati nemo officia, fuga laudantium ut porro animi unde quidem corrupti inventore?
           </p>
 
-          <DefaultButton
-            appendIcon={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
-            href={process.env.NEXT_PUBLIC_LINKEDIN_URL}
-            target='_blank'
-            variant='flat'
-            link
-          >
+          <DefaultButton>
             Contratar
           </DefaultButton>
         </div>
-      </div>
 
-      <div className={styles.personImageContainer}>
         <Image
-          alt='Pessoa acenando com a mão'
-          src='/images/illustrations/tinified-person-hello.png'
-          fill
+          src='/images/photos/me1.png'
+          alt='Retrato de Alessandro'
+          width={600}
+          height={600}
         />
       </div>
     </section>

@@ -1,83 +1,70 @@
-import React, { ReactNode } from 'react'
+import React, { useMemo } from 'react'
 
-import styles from './styles.module.scss'
+const colorVariants = {
+  primary: {
+    variants: {
+      flat: 'bg-primary hover:bg-primary-darken-1 text-white',
+      tonal: '',
+    },
+  },
+  white: {
+    variants: {
+      flat: '',
+      tonal: 'bg-white/20 hover:bg-white/30 text-white',
+    },
+  },
+}
 
-interface BaseProps {
-  children: ReactNode
-  appendIcon?: ReactNode
-  
-  variant?: 'outlined' | 'flat' | 'blur'
+type ValueOf<T> = T[keyof T]
 
+interface DefaultButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: boolean
-  persistentIcon?: boolean
+  block?: boolean
+
+  color?: keyof typeof colorVariants
+  variant?: 'flat' | 'tonal'
+
+  textColor?: string
 }
 
-type ActionButtonProps = BaseProps & React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  link?: false
-}
-
-type LinkButtonProps = BaseProps & React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-  link: true
-}
-
-function ButtonContent({ children, appendIcon }: BaseProps) {
-  return <>
-    { children }
-
-    {
-      !!appendIcon &&
-        <span className={styles.appendIcon}>
-          { appendIcon }
-        </span>
-    }
-  </>
-}
-
-// Next.js doesn't accept "BaseProps" as properties of HTML elements in this case, so we need to separate them
 export function DefaultButton({
   children,
-  appendIcon,
-  
-  variant,
 
   icon,
-  persistentIcon,
-  link,
+  block,
 
-  style,
+  color = 'primary',
+  variant = 'flat',
+
+  className,
 
   ...rest
-}: (ActionButtonProps | LinkButtonProps) & BaseProps) {
-  const classNameArr = [styles.defaultButton, styles[variant || 'outlined']]
+}: DefaultButtonProps) {
 
-  if (icon) {
-    classNameArr.push(styles.icon)
-  }
+  const classNameStr = useMemo(() => {
+    const classNameArr = [`${colorVariants[color].variants[variant]} rounded-full cursor-pointer`]
 
-  if (persistentIcon) {
-    classNameArr.push(styles.persistentIcon)
-  }
+    if (icon) {
+      classNameArr.push('size-12')
+    } else if (block) {
+      classNameArr.push('w-full h-14 px-8 font-medium text-xl')
+    } else {
+      classNameArr.push('min-w-50 h-14 px-8 font-medium text-xl')
+    }
 
-  const nodeItems = { children, appendIcon }
+    if (className) {
+      classNameArr.push(className)
+    }
 
-  const customStyles = style ?? {
-    minWidth: icon ? '50px' : '170px',
-  }
+    return classNameArr.join(' ')
+  }, [block, className, color, icon, variant]) 
 
-  return link
-    ? <a
-      className={classNameArr.join(' ')}
-      style={customStyles}
-      {...rest as LinkButtonProps}
+  return (
+    <button
+      className={classNameStr}
+      {...rest}
     >
-      <ButtonContent {...rest} {...nodeItems} />
-    </a>
-
-    : <button
-      className={classNameArr.join(' ')}
-      style={customStyles}
-      {...rest as ActionButtonProps}
-    >
-      <ButtonContent {...rest} {...nodeItems} />
+      { children }
     </button>
+  )
 }

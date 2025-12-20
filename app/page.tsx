@@ -1,16 +1,12 @@
 import { Metadata, Viewport } from 'next'
 
 import { DefaultHeader } from './components/pages/core/DefaultHeader'
-
-import styles from './styles.module.scss'
+import { DefaultFooter } from './components/pages/core/DefaultFooter'
 
 import { HeroSection } from './components/pages/sections/HeroSection'
-import { GeneralSkillsSection } from './components/pages/sections/GeneralSkillsSection'
-import { AboutSection } from './components/pages/sections/AboutSection'
 import { ProjectsSection } from './components/pages/sections/ProjectsSection'
-import { ExperienceSection } from './components/pages/sections/ExperienceSection'
-import { HardSkillsSection } from './components/pages/sections/HardSkillsSection'
-import { DefaultFooter } from './components/pages/core/DefaultFooter'
+
+import styles from './styles.module.scss'
 
 export const metadata: Metadata = {
   title: 'Portfólio - Alessandro Cídney',
@@ -25,21 +21,12 @@ export default function Home() {
     <div>
       <DefaultHeader />
 
-      <main className={styles.defaultMain}>
+      <main>
         <HeroSection />
 
-        <GeneralSkillsSection />
-
-        <AboutSection />
-
         <ProjectsSection />
-
-        <ExperienceSection />
-
-        <HardSkillsSection />
       </main>
 
-      <DefaultFooter />
     </div>
   )
 }

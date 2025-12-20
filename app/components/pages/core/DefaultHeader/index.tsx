@@ -5,12 +5,12 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+
+import { DefaultButton } from '@/app/components/commons/DefaultButton'
 
 import { getScrollPosition, scrollToTop } from '@/app/utils/scroll'
 import { debounce } from '@/app/utils'
-
-import { DefaultButton } from '../../../commons/DefaultButton'
 
 import styles from './styles.module.scss'
 
@@ -32,25 +32,14 @@ export function DefaultHeader() {
   }, [debouncedCheckScroll])
   return (
     <header
-      className={[
-        styles.defaultHeader,
-        userScrolledDown ? styles.userScrolledDown : '',
-      ].join(' ')}
+      className='z-11 fixed flex items-center justify-between w-full h-16 px-4'
     >
-      <h1>
-        <Link href='#'>
-          <Image
-            src='/images/texts/ac.png'
-            alt='Portfólio - Alessandro Cídney'
-            width={55}
-            height={34}
-            onClick={scrollToTop}
-          />
-        </Link>
+      <h1 className='text-primary text-xl font-extrabold'>
+        Portfólio
       </h1>
 
-      <nav className={styles.defaultNav}>
-        <ul>
+      <nav>
+        <ul className='flex gap-6'>
           <li>
             <Link href='#'>
               <span>Início</span>
@@ -83,14 +72,25 @@ export function DefaultHeader() {
         </ul>
       </nav>
 
-      <DefaultButton
-        appendIcon={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
-        href={process.env.NEXT_PUBLIC_LINKEDIN_URL}
-        target='_blank'
-        link
-      >
-        Contratar
-      </DefaultButton>
+      <div className='flex gap-2'>
+        <DefaultButton
+          icon
+        >
+          <FontAwesomeIcon
+            icon={faLinkedin}
+            size='xl'
+          />
+        </DefaultButton>
+
+        <DefaultButton
+          icon
+        >
+          <FontAwesomeIcon
+            icon={faGithub}
+            size='xl'
+          />
+        </DefaultButton>
+      </div>
     </header>
   )
 }
