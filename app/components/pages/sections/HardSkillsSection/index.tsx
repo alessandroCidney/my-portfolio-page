@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
 
 import { useCallback, useEffect, useMemo, useState } from 'react'
+import { LandingPageSection } from '../../core/LandingPageSection'
 
 export function HardSkillsSection() {
   const [searchStr, setSearchStr] = useState('')
@@ -117,53 +118,46 @@ export function HardSkillsSection() {
   }, [selectedSkills, searchStr, getXRandomItems, skillsList, reloadSelectedSkills, searchFocus])
 
   return (
-    <section
-      id='skills'
-      className='bg-gray-50'
+    <LandingPageSection
+      id='hard-skills'
+      title='Skills'
+      align='center'
     >
-      <div className='section__content bg-gray-100'>
-        <header className='text-center'>
-          <h2 className='font-extrabold tracking-tight text-7xl'>
-            Skills
-          </h2>
-        </header>
+      <form className='flex items-center justify-start mx-auto w-200 max-w-9/10 h-18 mb-16 overflow-hidden border-2 border-gray-200 rounded-full'>
+        <label className='relative flex items-center justify-start'>
+          <span className='sr-only'>
+            Nome da Skill
+          </span>
 
-        <form className='flex items-center justify-start mx-auto w-200 max-w-9/10 h-18 mb-16 overflow-hidden border-2 border-gray-200 rounded-full'>
-          <label className='relative flex items-center justify-start'>
-            <span className='sr-only'>
-              Nome da Skill
-            </span>
-
-            <span className='text-gray-500 pl-4 pr-3'>
-              <FontAwesomeIcon
-                icon={faMagnifyingGlass}
-              />
-            </span>
-
-            <input
-              type='text'
-              placeholder='Digite uma habilidade'
-              className='w-full h-full outline-none'
-              onChange={(e) => handleUpdateSearch(e.target.value)}
-              onFocus={(e) => handleFocus(true)}
-              onBlur={(e) => handleFocus(false)}
+          <span className='text-gray-500 pl-4 pr-3'>
+            <FontAwesomeIcon
+              icon={faMagnifyingGlass}
             />
-          </label>
-        </form>
+          </span>
 
-        <ul className='flex flex-wrap items-start justify-center gap-4 w-350 max-w-[80vw] mx-auto'>
-          {
-            skillsList.map((skillData, skillIndex) => (
-              <li
-                key={`skillKey${skillIndex}`}
-                className={`flex items-center justify-center px-8 h-20 ${selectedSkills.includes(skillData.title) ? 'bg-primary' : 'bg-primary/20'} rounded-full text-2xl text-white tracking-tighter font-medium transition-colors`}
-              >
-                { skillData.title }
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </section>
+          <input
+            type='text'
+            placeholder='Digite uma habilidade'
+            className='w-full h-full outline-none'
+            onChange={(e) => handleUpdateSearch(e.target.value)}
+            onFocus={(e) => handleFocus(true)}
+            onBlur={(e) => handleFocus(false)}
+          />
+        </label>
+      </form>
+
+      <ul className='flex flex-wrap items-start justify-center gap-4 w-350 max-w-[80vw] mx-auto'>
+        {
+          skillsList.map((skillData, skillIndex) => (
+            <li
+              key={`skillKey${skillIndex}`}
+              className={`flex items-center justify-center px-8 h-20 ${selectedSkills.includes(skillData.title) ? 'bg-primary' : 'bg-primary/20'} rounded-full text-2xl text-white tracking-tighter font-medium transition-colors`}
+            >
+              { skillData.title }
+            </li>
+          ))
+        }
+      </ul>
+    </LandingPageSection>
   )
 }

@@ -1,3 +1,4 @@
+import { LandingPageSection } from '../../core/LandingPageSection'
 import { ProjectCard } from './components/ProjectCard'
 
 export function ProjectsSection() {
@@ -52,32 +53,22 @@ export function ProjectsSection() {
   ]
 
   return (
-    <section
-      id='projects'
-      className='bg-gray-50'
+    <LandingPageSection
+      id='projects-and-companies'
+      title='Projetos e empresas'
+      subtitle='Veja onde trabalhei'
+      align='center'
     >
-      <div className='section__content bg-gray-100 flex flex-col items-center justify-center'>
-        <header className='text-center'>
-          <h2 className='font-bold tracking-tight text-3xl text-primary'>
-            Projetos e empresas
-          </h2>
-
-          <p className='font-extrabold tracking-tight text-7xl'>
-            Veja onde trabalhei
-          </p>
-        </header>
-        
-        <div className='flex items-center justify-center gap-12'>
-          {
-            projectsArr.map((projectData, projectIndex) => (
-              <ProjectCard
-                key={`projectKey${projectIndex}`}
-                {...projectData}
-              />
-            ))
-          }
-        </div>
+      <div className='flex items-center justify-center gap-8'>
+        {
+          projectsArr.map((projectData, projectIndex) => (
+            <ProjectCard
+              key={`projectKey${projectIndex}`}
+              {...projectData}
+            />
+          ))
+        }
       </div>
-    </section>
+    </LandingPageSection>
   )
 }
