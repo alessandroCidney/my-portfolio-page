@@ -5,8 +5,9 @@ import { DefaultFooter } from './components/pages/core/DefaultFooter'
 
 import { HeroSection } from './components/pages/sections/HeroSection'
 import { ProjectsSection } from './components/pages/sections/ProjectsSection'
-
-import styles from './styles.module.scss'
+import { HardSkillsSection } from './components/pages/sections/HardSkillsSection'
+import { AboutSection } from './components/pages/sections/AboutSection'
+import { ExperienceSection } from './components/pages/sections/ExperienceSection'
 
 export const metadata: Metadata = {
   title: 'Portfólio - Alessandro Cídney',
@@ -18,15 +19,22 @@ export const viewport: Viewport = {
 
 export default function Home() {
   return (
-    <div>
+    <>
       <DefaultHeader />
 
       <main>
-        <HeroSection />
+        <HeroSection/>
 
         <ProjectsSection />
+
+        <AboutSection />
+
+        <HardSkillsSection />
+
+        <ExperienceSection />
       </main>
 
-    </div>
+      <DefaultFooter />
+    </>
   )
 }

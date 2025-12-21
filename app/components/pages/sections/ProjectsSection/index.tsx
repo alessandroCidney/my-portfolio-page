@@ -7,8 +7,8 @@ export function ProjectsSection() {
       company: 'SantoDigital',
       description: 'Plataforma para análise e validação de documentos utilizando inteligência artificial.',
 
-      companyColor: 'text-fuchsia-600',
-      gradient: 'bg-linear-150 from-fuchsia-600 to-violet-800',
+      companyColor: 'text-[#A229A4]',
+      gradient: 'bg-linear-150 from-[#A229A4] to-[#001499]',
 
       url: process.env.NEXT_PUBLIC_DOCUMENT_ANALYZER_URL ?? '',
     },
@@ -54,27 +54,29 @@ export function ProjectsSection() {
   return (
     <section
       id='projects'
-      className='z-9 relative flex flex-col gap-16 items-center justify-center pt-80 pb-40 transform-[translateY(-160px)] bg-gray-100'
+      className='bg-gray-50'
     >
-      <header className='text-center'>
-        <h2 className='font-bold tracking-tight text-3xl'>
-          Projetos e empresas
-        </h2>
+      <div className='section__content bg-gray-100 flex flex-col items-center justify-center'>
+        <header className='text-center'>
+          <h2 className='font-bold tracking-tight text-3xl text-primary'>
+            Projetos e empresas
+          </h2>
 
-        <p className='font-extrabold tracking-tight text-7xl'>
-          Veja onde trabalhei
-        </p>
-      </header>
-      
-      <div className='flex items-center justify-center gap-12'>
-        {
-          projectsArr.map((projectData, projectIndex) => (
-            <ProjectCard
-              key={`projectKey${projectIndex}`}
-              {...projectData}
-            />
-          ))
-        }
+          <p className='font-extrabold tracking-tight text-7xl'>
+            Veja onde trabalhei
+          </p>
+        </header>
+        
+        <div className='flex items-center justify-center gap-12'>
+          {
+            projectsArr.map((projectData, projectIndex) => (
+              <ProjectCard
+                key={`projectKey${projectIndex}`}
+                {...projectData}
+              />
+            ))
+          }
+        </div>
       </div>
     </section>
   )

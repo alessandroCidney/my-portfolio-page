@@ -13,7 +13,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ title, company, gradient, companyColor, description }: ProjectCardProps) {
   return (
-    <article className={`flex flex-col w-110 aspect-3/4 p-8 rounded-[60px] bg-linear-135 ${gradient} text-white`}>
+    <article className={`flex flex-col w-110 aspect-2/3 p-8 rounded-[60px] bg-linear-135 ${gradient} text-white shadow-2xl`}>
       <header className='relative flex items-center justify-center h-1/2 text-center'>
         <h3 className='transform-[translateY(48px)] text-7xl font-extrabold tracking-tight'>
           { title }

@@ -8,68 +8,39 @@ export function AboutSection() {
   return (
     <section
       id='about'
-      className={styles.aboutSection}
+      className='bg-gray-100'
     >
-      <div className={styles.contentContainer}>
-        <div className={styles.textContainer}>
-          <h2>
-            Sobre <br />
-
-            <span className={styles.highlight}>
-              mim
-            </span>
-          </h2>
-
-          <p>
-            Olá, me chamo Alessandro Cídney! Sou um desenvolvedor front-end com quase 4 anos de experiência na criação de websites e interfaces.
-          </p>
-
-          <p>
-            Comecei minha carreira no ano de 2021, onde comecei a desenvolver e melhorar websites como estagiário front-end.
-          </p>
-
-          <p>
-            Desde então, participei de diversos projetos, atuando na construção de interfaces, criação de sistemas de cadastro, demonstrações para empresas,
-            manutenção de APIs e desenvolvimento de pacotes para utilização em aplicações.
-          </p>
-
-          <p>
-            Minha missão é fazer as empresas e clientes atingirem seus objetivos e sonhos por meio da construção de interfaces incríveis
-            que sejam úteis e eficientes para seu negócio.
-          </p>
-
-          <p>
-            Que tal trabalharmos juntos para levarmos a sua empresa ou ferramenta ao próximo nível?
-          </p>
-
+      <div className='section__content bg-gray-50'>
+        <div className='flex items-center justify-center gap-16 w-350 max-w-[80vw] mx-auto'>
           <div>
-            <DefaultButton
-              appendIcon={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
-              href={process.env.NEXT_PUBLIC_LINKEDIN_URL}
-              target='_blank'
-              variant='flat'
-              style={{
-                width: '300px',
-                maxWidth: '100%',
-              }}
-              link
-            >
-              Mande uma mensagem
-            </DefaultButton>
-          </div>
-        </div>
+            <header>
+              <h2 className='font-bold tracking-tight text-3xl text-primary'>
+                Sobre mim
+              </h2>
 
-        <div className={styles.imageContainer}>
+              <p className='font-extrabold tracking-tight text-7xl'>
+                Conheça minha história
+              </p>
+            </header>
+
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ex alias vero reiciendis magni dolore consectetur, est rem, natus aut neque libero a error non maiores illum, dicta mollitia debitis.
+              Facilis quis libero veritatis enim architecto ratione incidunt fugiat, inventore accusamus neque ipsum non similique suscipit! Quam sequi quos earum recusandae nihil, veniam reprehenderit vero sit officiis aliquam nostrum quisquam.
+              Ad minima beatae ducimus repellendus exercitationem, nam accusamus et assumenda amet iste eligendi odio earum quibusdam laudantium itaque numquam eius distinctio! Libero in, nisi voluptates doloremque eveniet quo quas ipsum?
+              Fugiat nemo, nobis quis atque saepe eum nulla expedita iste molestias magnam ad in temporibus sequi ex harum quas eius est at voluptatum, ab voluptates. Hic praesentium blanditiis libero ratione!
+              Non natus dolores at in itaque quis officia eos quos corporis dolore sed impedit harum eaque iure et asperiores, ad ut, voluptate quia dolor dolorum. Sapiente culpa libero ipsam eaque!
+            </p>
+          </div>
+
           <Image
-            src='/images/photos/tinified-selfie.jpg'
-            alt='Uma fotografia minha.'
-            objectFit='cover'
-            fill
+            src='/images/photos/me2.jpg'
+            alt='Selfie de Alessandro'
+            className='rounded-full'
+            width={600}
+            height={800}
           />
         </div>
       </div>
-      
-      <div className={styles.secondBackground} />
     </section>
   )
 }

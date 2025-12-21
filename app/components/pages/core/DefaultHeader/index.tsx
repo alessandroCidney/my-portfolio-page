@@ -32,9 +32,9 @@ export function DefaultHeader() {
   }, [debouncedCheckScroll])
   return (
     <header
-      className='z-11 fixed flex items-center justify-between w-full h-16 px-4'
+      className={`z-11 fixed flex items-center justify-between w-full h-18 px-4 text-white transition-all ${userScrolledDown ? 'backdrop-blur-sm' : ''}`}
     >
-      <h1 className='text-primary text-xl font-extrabold'>
+      <h1 className='text-xl font-extrabold pl-3'>
         Portfólio
       </h1>
 
