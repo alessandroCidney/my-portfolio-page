@@ -9,6 +9,8 @@ import { HardSkillsSection } from './components/pages/sections/HardSkillsSection
 import { AboutSection } from './components/pages/sections/AboutSection'
 import { ExperienceSection } from './components/pages/sections/ExperienceSection'
 
+import styles from './styles.module.scss'
+
 export const metadata: Metadata = {
   title: 'Portfólio - Alessandro Cídney',
 }
@@ -22,7 +24,7 @@ export default function Home() {
     <>
       <DefaultHeader />
 
-      <main>
+      <main className={styles.page__content}>
         <HeroSection/>
 
         <ProjectsSection />

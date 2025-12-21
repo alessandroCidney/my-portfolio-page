@@ -1,5 +1,14 @@
-@media (min-width: 961px) {
-  main.defaultMain {
-    padding: 0 20px;
+main.page__content > section {
+  div.section__content {
+    border-radius: 0 0 80px 80px;
+
+    header {
+      margin-bottom: calc(var(--spacing) * 16);
+    }
+  }
+
+  &:not(:first-child) > div.section__content {
+    padding-top: calc(var(--spacing) * 40);
+    padding-bottom: calc(var(--spacing) * 60);
   }
 }

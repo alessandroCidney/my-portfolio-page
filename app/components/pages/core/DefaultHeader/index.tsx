@@ -19,9 +19,11 @@ export function DefaultHeader() {
 
   function checkScroll() {
     setUserScrolledDown(getScrollPosition() > 20)
+
+    console.log('checkScroll')
   }
 
-  const debouncedCheckScroll = debounce(checkScroll, 50)
+  const debouncedCheckScroll = debounce(checkScroll, 10)
 
   useEffect(() => {
     window.addEventListener('scroll', debouncedCheckScroll)
