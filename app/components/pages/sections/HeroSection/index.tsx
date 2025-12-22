@@ -13,6 +13,9 @@ export function HeroSection() {
 
         lg:max-h-250
         lg:h-[110dvh]
+        lg:min-h-auto
+
+        min-h-[95dvh]
       `}
     >
       <div
@@ -25,10 +28,10 @@ export function HeroSection() {
 
           mx-auto
 
+          lg:flex-row
           lg:w-400
           lg:max-w-[80vw]
           lg:text-start
-          lg:flex-row
           lg:py-0
 
           w-full

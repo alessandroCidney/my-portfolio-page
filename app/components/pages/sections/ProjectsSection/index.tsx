@@ -35,23 +35,6 @@ export function ProjectsSection() {
     },
   ]
 
-  const personalProjectsArr = [
-    {
-      title: 'Super Planning Poker',
-      description: 'Uma aplicação que permite a realização de estimativas de esforço para atividades por meio do Planning Poker, muito utilizado no Scrum.',
-
-      imageSrc: '/images/logos/super-planning-poker-logo.svg',
-      projectUrl: process.env.NEXT_PUBLIC_SUPER_PLANNING_POKER_URL ?? '',
-    },
-    {
-      title: 'MoneySpy',
-      description: 'Plataforma para organização e análise de gastos pessoais, com relatórios diversos e sistema de gamificação embutido.',
-
-      imageSrc: '/images/illustrations/blue-money-spy.svg',
-      projectUrl: process.env.NEXT_PUBLIC_MONEYSPY_URL ?? '',
-    },
-  ]
-
   return (
     <LandingPageSection
       id='projects-and-companies'

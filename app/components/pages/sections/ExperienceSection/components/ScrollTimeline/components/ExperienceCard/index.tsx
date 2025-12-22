@@ -61,30 +61,51 @@ export function ExperienceCard({ experienceData, timeLineProgress, containerRef,
           { experienceData.company }
         </p>
 
-        <AnimatePresence>
-          {
-            active && (
-              <motion.p
-                key={`pKey${experienceData.time}`}
-                className='absolute inline-block transform-[translate(calc((100%+80px)*-1),-25%)] bg-primary font-medium p-4 rounded-xl text-white'
-                style={{
-                  top: `${timeLineProgress}%`,
-                }}
-                initial={{
-                  opacity: 0,
-                }}
-                animate={{
-                  opacity: 1,
-                }}
-                exit={{
-                  opacity: 0,
-                }}
-              >
-                { experienceData.time }
-              </motion.p>
-            )
-          }
-        </AnimatePresence>
+        <div className='hidden lg:block'>
+          <AnimatePresence>
+            {
+              active && (
+                <motion.p
+                  key={`pKey${experienceData.time}`}
+                  className='absolute inline-block transform-[translate(calc((100%+80px)*-1),-25%)] bg-primary font-medium p-4 rounded-xl text-white'
+                  style={{
+                    top: `${timeLineProgress}%`,
+                  }}
+                  initial={{
+                    opacity: 0,
+                  }}
+                  animate={{
+                    opacity: 1,
+                  }}
+                  exit={{
+                    opacity: 0,
+                  }}
+                >
+                  { experienceData.time }
+                </motion.p>
+              )
+            }
+          </AnimatePresence>
+        </div>
+
+        <p
+          className={`
+            ${overtaken ? 'bg-primary' : 'bg-primary/50'}
+
+            inline-block
+            lg:hidden
+
+            p-2
+            mt-2
+            rounded-full
+            
+            font-medium
+            text-white
+            text-sm
+          `}
+        >
+          { experienceData.time }
+        </p>
       </header>
 
       <p>

@@ -63,7 +63,7 @@ export function ScrollTimeline() {
       ref={containerRef}
       className='relative flex gap-6'
     >
-      <div className='flex-[1_1_0]' />
+      <div className='hidden lg:block flex-[1_1_0]' />
 
       <div
         className='relative flex flex-col items-center rounded-full'
