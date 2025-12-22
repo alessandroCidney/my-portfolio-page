@@ -119,7 +119,7 @@ export function HardSkillsSection() {
 
   return (
     <LandingPageSection
-      id='hard-skills'
+      id='skills'
       title='Skills'
       align='center'
     >

@@ -35,7 +35,7 @@ export function LandingPageSection({
       id={id}
       className={'group even:bg-gray-50 odd:bg-gray-100'}
     >
-      <div className='group-even:bg-gray-100 group-odd:bg-gray-50 rounded-b-[80px] group-not-first:pt-40 group-not-first:pb-60'>
+      <div className='group-even:bg-gray-100 group-odd:bg-gray-50 group-not-first:py-40'>
         <div className='flex items-center justify-center gap-16 w-350 max-w-[80vw] mx-auto'>
           <div>
             <header className={`${align === 'center' ? 'text-center' : ''} mb-16`}>

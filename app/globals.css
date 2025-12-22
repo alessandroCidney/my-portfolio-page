@@ -7,6 +7,10 @@
   --color-secondary: #002BFF;
 }
 
+body {
+  scroll-behavior: smooth;
+}
+
 /* 
 @media (prefers-color-scheme: dark) {
   :root {

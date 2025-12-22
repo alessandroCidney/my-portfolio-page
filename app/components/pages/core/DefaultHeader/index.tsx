@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,10 +8,8 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 import { DefaultButton } from '@/app/components/commons/DefaultButton'
 
-import { getScrollPosition, scrollToTop } from '@/app/utils/scroll'
+import { getScrollPosition } from '@/app/utils/scroll'
 import { debounce } from '@/app/utils'
-
-import styles from './styles.module.scss'
 
 export function DefaultHeader() {
   const [userScrolledDown, setUserScrolledDown] = useState(false)
@@ -34,13 +31,13 @@ export function DefaultHeader() {
   }, [debouncedCheckScroll])
   return (
     <header
-      className={`z-11 fixed flex items-center justify-between w-full h-18 px-4 text-white transition-all ${userScrolledDown ? 'backdrop-blur-sm' : ''}`}
+      className={`${userScrolledDown ? 'bg-white/90 backdrop-blur-lg shadow-sm text-primary' : 'text-white'} z-11 fixed flex items-center justify-between w-full h-18 px-4 transition-all`}
     >
       <h1 className='text-xl font-extrabold pl-3'>
         Portfólio
       </h1>
 
-      <nav>
+      <nav className='font-medium'>
         <ul className='flex gap-6'>
           <li>
             <Link href='#'>
@@ -49,13 +46,7 @@ export function DefaultHeader() {
           </li>
 
           <li>
-            <Link href='#about'>
-              <span>Sobre mim</span>
-            </Link>
-          </li>
-
-          <li>
-            <Link href='#projects'>
+            <Link href='#projects-and-companies'>
               <span>Projetos</span>
             </Link>
           </li>
@@ -63,6 +54,12 @@ export function DefaultHeader() {
           <li>
             <Link href='#skills'>
               <span>Skills</span>
+            </Link>
+          </li>
+
+          <li>
+            <Link href='#about'>
+              <span>Sobre mim</span>
             </Link>
           </li>
 

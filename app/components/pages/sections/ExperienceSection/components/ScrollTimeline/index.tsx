@@ -3,19 +3,19 @@
 import { useRef, useState } from 'react'
 
 import { useScroll } from '@/app/hooks/useScroll'
+import { ExperienceCard } from './components/ExperienceCard'
 
 export function ScrollTimeline() {
+  const containerRef = useRef<HTMLDivElement>(null)
   const timeLineProgressRef = useRef<HTMLDivElement>(null)
-  const backgroundTimelineRef = useRef<HTMLDivElement>(null)
+  const fullTimelineRef = useRef<HTMLDivElement>(null)
 
   const [timeLineProgress, setTimelineProgress] = useState(0)
 
-  console.log('timeline p', timeLineProgress)
-
   function onScroll() {
-    if (timeLineProgressRef.current && backgroundTimelineRef.current) {
+    if (timeLineProgressRef.current && fullTimelineRef.current) {
       const timelineClientRect = timeLineProgressRef.current.getBoundingClientRect()
-      const backgroundClientRect = backgroundTimelineRef.current.getBoundingClientRect()
+      const backgroundClientRect = fullTimelineRef.current.getBoundingClientRect()
 
       const rawProgress = (timelineClientRect.top - window.innerHeight * 0.4) * -1
 
@@ -41,27 +41,35 @@ export function ScrollTimeline() {
     {
       job: 'Desenvolvedor Front-End Pleno',
       time: '2024 - 2025',
+      company: 'SantoDigital',
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quo! Dolorem, suscipit culpa velit odit dolor minus numquam tenetur officia ullam nisi quia, amet eos magni reprehenderit unde corporis aspernatur?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quo! Dolorem, suscipit culpa velit odit dolor minus numquam tenetur officia ullam nisi quia, amet eos magni reprehenderit unde corporis aspernatur?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quo! Dolorem, suscipit culpa velit odit dolor minus numquam tenetur officia ullam nisi quia, amet eos magni reprehenderit unde corporis aspernatur?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quo! Dolorem, suscipit culpa velit odit dolor minus numquam tenetur officia ullam nisi quia, amet eos magni reprehenderit unde corporis aspernatur?',
     },
     {
       job: 'Desenvolvedor Front-End Júnior',
       time: '2022 - 2023',
+      company: 'SantoDigital',
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quo! Dolorem, suscipit culpa velit odit dolor minus numquam tenetur officia ullam nisi quia, amet eos magni reprehenderit unde corporis aspernatur?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quo! Dolorem, suscipit culpa velit odit dolor minus numquam tenetur officia ullam nisi quia, amet eos magni reprehenderit unde corporis aspernatur?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quo! Dolorem, suscipit culpa velit odit dolor minus numquam tenetur officia ullam nisi quia, amet eos magni reprehenderit unde corporis aspernatur?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quo! Dolorem, suscipit culpa velit odit dolor minus numquam tenetur officia ullam nisi quia, amet eos magni reprehenderit unde corporis aspernatur?',
     },
     {
       job: 'Estagiário de Programação Front-End',
       time: '2021 - 2022',
+      company: 'SantoDigital',
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quo! Dolorem, suscipit culpa velit odit dolor minus numquam tenetur officia ullam nisi quia, amet eos magni reprehenderit unde corporis aspernatur?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quo! Dolorem, suscipit culpa velit odit dolor minus numquam tenetur officia ullam nisi quia, amet eos magni reprehenderit unde corporis aspernatur?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quo! Dolorem, suscipit culpa velit odit dolor minus numquam tenetur officia ullam nisi quia, amet eos magni reprehenderit unde corporis aspernatur?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quo! Dolorem, suscipit culpa velit odit dolor minus numquam tenetur officia ullam nisi quia, amet eos magni reprehenderit unde corporis aspernatur?',
     },
   ]
 
   return (
-    <div className='flex gap-6 pl-[calc(50%-56px)]'>
+    <div
+      ref={containerRef}
+      className='relative flex gap-6'
+    >
+      <div className='flex-[1_1_0]' />
+
       <div
         className='relative flex flex-col items-center rounded-full'
       >
         <div
-          className='z-3 absolute bg-secondary size-8 rounded-full'
+          className='z-3 absolute bg-secondary size-6 rounded-full border-2 border-solid border-white outline-3 outline-secondary'
           style={{
             top: `${timeLineProgress}%`,
           }}
@@ -77,7 +85,7 @@ export function ScrollTimeline() {
           />
 
           <div
-            ref={backgroundTimelineRef}
+            ref={fullTimelineRef}
             className='z-1 absolute top-0 h-full w-1 bg-gray-200 rounded-full'
           />
         </div>
@@ -86,24 +94,13 @@ export function ScrollTimeline() {
       <div className='flex-[1_1_0] py-20'>
         {
           experienceArr.map((experienceData, experienceIndex) => (
-            <article
+            <ExperienceCard
               key={`experienceKey${experienceIndex}`}
-              className='mb-20'
-            >
-              <header>
-                <h3 className='text-2xl font-bold tracking-tight'>
-                  { experienceData.job }
-                </h3>
-
-                <p>
-                  { experienceData.time }
-                </p>
-              </header>
-
-              <p>
-                { experienceData.description }
-              </p>
-            </article>
+              containerRef={containerRef}
+              fullTimelineRef={fullTimelineRef}
+              experienceData={experienceData}
+              timeLineProgress={timeLineProgress}
+            />
           ))
         }
       </div>
