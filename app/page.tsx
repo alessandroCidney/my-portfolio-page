@@ -8,6 +8,7 @@ import { ProjectsSection } from './components/pages/sections/ProjectsSection'
 import { HardSkillsSection } from './components/pages/sections/SkillsSection'
 import { AboutSection } from './components/pages/sections/AboutSection'
 import { ExperienceSection } from './components/pages/sections/ExperienceSection'
+import { ContactSection } from './components/pages/sections/ContactSection'
 
 export const metadata: Metadata = {
   title: 'Portfólio - Alessandro Cídney',
@@ -32,6 +33,8 @@ export default function Home() {
         <AboutSection />
 
         <ExperienceSection />
+
+        <ContactSection />
       </main>
 
       <DefaultFooter />
