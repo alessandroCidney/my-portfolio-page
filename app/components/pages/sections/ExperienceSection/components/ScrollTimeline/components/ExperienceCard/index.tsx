@@ -53,6 +53,10 @@ export function ExperienceCard({ experienceData, timeLineProgress, containerRef,
           { experienceData.job }
         </h3>
 
+        <div
+          className={`absolute z-2 transform-[translate(calc((50%+40px)*-1),-50%)] size-4 rounded-full ${overtaken ? 'bg-primary border-2 border-white outline-3 outline-primary' : 'bg-white border-4 border-gray-200'}`}
+        />
+
         <p>
           { experienceData.company }
         </p>
@@ -80,10 +84,6 @@ export function ExperienceCard({ experienceData, timeLineProgress, containerRef,
               </motion.p>
             )
           }
-
-          <div
-            className={`absolute z-2 transform-[translate(calc((50%+40px)*-1),-25%)] size-4 rounded-full ${overtaken ? 'bg-primary border-2 border-white outline-3 outline-primary' : 'bg-white border-4 border-gray-200'}`}
-          />
         </AnimatePresence>
       </header>
 

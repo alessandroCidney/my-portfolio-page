@@ -1,9 +1,3 @@
-import styles from './styles.module.scss'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
-
-import { DefaultButton } from '../../../commons/DefaultButton'
 import { ScrollTimeline } from './components/ScrollTimeline'
 import { LandingPageSection } from '../../core/LandingPageSection'
 

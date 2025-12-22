@@ -5,7 +5,7 @@ import { DefaultFooter } from './components/pages/core/DefaultFooter'
 
 import { HeroSection } from './components/pages/sections/HeroSection'
 import { ProjectsSection } from './components/pages/sections/ProjectsSection'
-import { HardSkillsSection } from './components/pages/sections/HardSkillsSection'
+import { HardSkillsSection } from './components/pages/sections/SkillsSection'
 import { AboutSection } from './components/pages/sections/AboutSection'
 import { ExperienceSection } from './components/pages/sections/ExperienceSection'
 

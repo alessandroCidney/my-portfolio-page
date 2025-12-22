@@ -1,8 +1,9 @@
 'use client'
 
+import Image from 'next/image'
+
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Image from 'next/image'
 
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { LandingPageSection } from '../../core/LandingPageSection'

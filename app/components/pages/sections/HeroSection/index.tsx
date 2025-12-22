@@ -1,6 +1,5 @@
 import Image from 'next/image'
 
-import styles from './styles.module.scss'
 import { DefaultButton } from '@/app/components/commons/DefaultButton'
 
 export function HeroSection() {

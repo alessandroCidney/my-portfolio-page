@@ -1,8 +1,5 @@
 import Image from 'next/image'
-import styles from './styles.module.scss'
-import { DefaultButton } from '@/app/components/commons/DefaultButton'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
+
 import { LandingPageSection } from '../../core/LandingPageSection'
 
 export function AboutSection() {

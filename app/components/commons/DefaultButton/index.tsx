@@ -15,8 +15,6 @@ const colorVariants = {
   },
 }
 
-type ValueOf<T> = T[keyof T]
-
 interface DefaultButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: boolean
   block?: boolean
