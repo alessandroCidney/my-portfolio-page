@@ -5,6 +5,11 @@
   --color-primary-darken-1: #0a0068;
 
   --color-secondary: #002BFF;
+
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 960px;
+  --breakpoint-lg: 1280px;
+  --breakpoint-xl: 1920px;
 }
 
 body {
