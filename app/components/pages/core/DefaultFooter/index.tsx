@@ -25,9 +25,12 @@ export function DefaultFooter() {
                   key={`socialMediaKey${socialMediaIndex}`}
                 >
                   <DefaultButton
+                    href={socialMediaData.url}
                     variant='text'
                     color='white'
+                    target='_blank'
                     icon
+                    link
                   >
                     <FontAwesomeIcon
                       icon={socialMediaData.icon}

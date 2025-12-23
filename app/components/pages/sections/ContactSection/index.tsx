@@ -1,11 +1,32 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { LandingPageSection } from '../../core/LandingPageSection'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
+'use client'
+
+import { useState } from 'react'
+
+import { faCheck, faCopy, faEnvelope, faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import { DefaultButton } from '@/app/components/commons/DefaultButton'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
+
+import { LandingPageSection } from '../../core/LandingPageSection'
 import { ContactMethod } from './components/ContactMethod'
 
 export function ContactSection() {
+  const [copySuccess, setCopySuccess] = useState(false)
+
+  async function copyEmailAddress() {
+    try {
+      await navigator.clipboard.writeText(process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? '')
+
+      setCopySuccess(true)
+
+      setTimeout(() => {
+        setCopySuccess(false)
+      }, 3000)
+    } catch (err) {
+      console.error('err', err)
+    }
+  }
+
   return (
     <LandingPageSection
       id='contact'
@@ -24,7 +45,17 @@ export function ContactSection() {
         <ContactMethod
           icon={faLinkedin}
           action={
-            <DefaultButton block>
+            <DefaultButton
+              href={process.env.NEXT_PUBLIC_LINKEDIN_URL}
+              target='_blank'
+              appendIcon={
+                <FontAwesomeIcon
+                  icon={faUpRightFromSquare}
+                />
+              }
+              link
+              block
+            >
               Acessar LinkedIn
             </DefaultButton>
           }
@@ -35,12 +66,21 @@ export function ContactSection() {
         <ContactMethod
           icon={faEnvelope}
           action={
-            <DefaultButton block>
-              Copiar Endereço
+            <DefaultButton
+              className='min-w-51'
+              appendIcon={
+                <FontAwesomeIcon
+                  icon={copySuccess ? faCheck : faCopy}
+                />
+              }
+              block
+              onClick={copyEmailAddress}
+            >
+              { copySuccess ? 'Copiado' : 'Copiar Endereço' }
             </DefaultButton>
           }
         >
-          Envie um e-mail para <span className='font-bold'>contato.acidn@gmail.com</span>
+          Envie um e-mail para <span className='font-bold'>{process.env.NEXT_PUBLIC_CONTACT_EMAIL}</span>
         </ContactMethod>
       </ul>
     </LandingPageSection>

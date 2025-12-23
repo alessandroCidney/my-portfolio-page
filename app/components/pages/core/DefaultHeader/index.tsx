@@ -69,21 +69,11 @@ export function DefaultHeader() {
 
       <div className='hidden lg:flex gap-2'>
         <DefaultButton
-          icon
+          href={process.env.NEXT_PUBLIC_LINKEDIN_URL}
+          target='_blank'
+          link
         >
-          <FontAwesomeIcon
-            icon={faLinkedin}
-            size='xl'
-          />
-        </DefaultButton>
-
-        <DefaultButton
-          icon
-        >
-          <FontAwesomeIcon
-            icon={faGithub}
-            size='xl'
-          />
+          Contratar
         </DefaultButton>
       </div>
     </header>

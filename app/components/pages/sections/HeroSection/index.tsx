@@ -72,9 +72,16 @@ export function HeroSection() {
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum neque dignissimos rerum aliquam ipsa praesentium ducimus quos enim, assumenda illo exercitationem? Repellendus, vel facere. Optio quisquam quibusdam consequuntur ab voluptatum?
           </p>
 
-          <DefaultButton>
-            Contratar
-          </DefaultButton>
+          <div className='inline-block'>
+            <DefaultButton
+              href={process.env.NEXT_PUBLIC_LINKEDIN_URL}
+              target='_blank'
+              large
+              link
+            >
+              Contratar
+            </DefaultButton>
+          </div>
         </div>
 
         <div

@@ -95,6 +95,7 @@ export function ProjectCard({
           color='white'
           variant='tonal'
           block
+          large
         >
           Visitar no site
         </DefaultButton>

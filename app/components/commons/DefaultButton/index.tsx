@@ -1,23 +1,25 @@
-import React, { useMemo } from 'react'
+import React, { ReactNode, useMemo } from 'react'
 
 const colorVariants = {
   primary: {
     variants: {
       flat: 'bg-primary hover:bg-primary-darken-1 text-white',
-      tonal: '',
+      tonal: 'bg-primary/20 hover:bg-primary/30 text-primary',
       text: 'bg-transparent hover:bg-primary/20 text-primary',
     },
   },
   white: {
     variants: {
-      flat: '',
+      flat: 'bg-white hover:bg-white-darken-1 text-primary',
       tonal: 'bg-white/20 hover:bg-white/30 text-white',
       text: 'bg-transparent hover:bg-white/20 text-white',
     },
   },
 }
 
-interface DefaultButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface BaseProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  appendIcon?: ReactNode
+
   icon?: boolean
   block?: boolean
 
@@ -25,10 +27,35 @@ interface DefaultButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   variant?: 'flat' | 'tonal' | 'text'
 
   textColor?: string
+
+  large?: boolean
+  link?: boolean
+}
+
+type ActionButtonProps = BaseProps & React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  link?: false
+}
+
+type LinkButtonProps = BaseProps & React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+  link: true
+}
+
+function ButtonContent({ children, appendIcon }: BaseProps) {
+  return <>
+    { children }
+
+    {
+      !!appendIcon &&
+        <span className='ml-2'>
+          { appendIcon }
+        </span>
+    }
+  </>
 }
 
 export function DefaultButton({
   children,
+  appendIcon,
 
   icon,
   block,
@@ -38,18 +65,27 @@ export function DefaultButton({
 
   className,
 
+  large,
+  link,
+
   ...rest
-}: DefaultButtonProps) {
+}: (ActionButtonProps | LinkButtonProps) & BaseProps) {
 
   const classNameStr = useMemo(() => {
-    const classNameArr = [`${colorVariants[color].variants[variant]} rounded-full cursor-pointer`]
+    const classNameArr = [`${colorVariants[color].variants[variant]} rounded-full cursor-pointer flex items-center justify-center`]
 
     if (icon) {
       classNameArr.push('size-12')
-    } else if (block) {
-      classNameArr.push('w-full h-14 px-8 font-medium text-xl')
+    } else if (large) {
+      classNameArr.push('min-w-50 text-xl h-14 px-8')
     } else {
-      classNameArr.push('min-w-50 h-14 px-8 font-medium text-xl')
+      classNameArr.push('min-w-35 px-6 h-12')
+    }
+    
+    if (block) {
+      classNameArr.push('w-full font-medium')
+    } else {
+      classNameArr.push('font-medium')
     }
 
     if (className) {
@@ -57,14 +93,22 @@ export function DefaultButton({
     }
 
     return classNameArr.join(' ')
-  }, [block, className, color, icon, variant]) 
+  }, [block, className, color, icon, large, variant])
 
-  return (
-    <button
+  const nodeItems = { children, appendIcon }
+
+  return link
+    ? <a
       className={classNameStr}
-      {...rest}
+      {...rest as LinkButtonProps}
     >
-      { children }
+      <ButtonContent {...rest} {...nodeItems} />
+    </a>
+
+    : <button
+      className={classNameStr}
+      {...rest as ActionButtonProps}
+    >
+      <ButtonContent {...rest} {...nodeItems} />
     </button>
-  )
 }
