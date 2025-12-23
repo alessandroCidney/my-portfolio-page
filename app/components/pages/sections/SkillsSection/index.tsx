@@ -124,7 +124,7 @@ export function HardSkillsSection() {
       title='Skills'
       align='center'
     >
-      <form className='flex items-center justify-start mx-auto w-200 max-w-9/10 h-18 mb-16 overflow-hidden border-2 border-gray-200 rounded-full'>
+      <form className='flex items-center justify-start mx-auto w-200 max-w-[80vw] h-18 mb-16 overflow-hidden border-2 border-gray-200 rounded-full'>
         <label className='relative flex items-center justify-start'>
           <span className='sr-only'>
             Nome da Skill
@@ -147,12 +147,32 @@ export function HardSkillsSection() {
         </label>
       </form>
 
-      <ul className='flex flex-wrap items-start justify-center gap-4 w-350 max-w-[80vw] mx-auto'>
+      <ul className='flex flex-wrap items-start justify-center md:gap-4 gap-3 w-350 max-w-[80vw] mx-auto'>
         {
           skillsList.map((skillData, skillIndex) => (
             <li
               key={`skillKey${skillIndex}`}
-              className={`flex items-center justify-center px-8 h-20 ${selectedSkills.includes(skillData.title) ? 'bg-primary' : 'bg-primary/20'} rounded-full text-2xl text-white tracking-tighter font-medium transition-colors`}
+              className={`
+                ${selectedSkills.includes(skillData.title) ? 'bg-primary' : 'bg-primary/20'}
+
+                flex
+                items-center
+                justify-center
+                rounded-full
+                text-white
+                tracking-tighter
+                font-medium
+                transition-colors
+
+                md:px-8
+                px-4
+
+                md:h-20
+                h-12
+
+                md:text-2xl
+                text-base
+              `}
             >
               { skillData.title }
             </li>

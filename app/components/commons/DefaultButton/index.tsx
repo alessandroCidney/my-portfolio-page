@@ -5,12 +5,14 @@ const colorVariants = {
     variants: {
       flat: 'bg-primary hover:bg-primary-darken-1 text-white',
       tonal: '',
+      text: 'bg-transparent hover:bg-primary/20 text-primary',
     },
   },
   white: {
     variants: {
       flat: '',
       tonal: 'bg-white/20 hover:bg-white/30 text-white',
+      text: 'bg-transparent hover:bg-white/20 text-white',
     },
   },
 }
@@ -20,7 +22,7 @@ interface DefaultButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   block?: boolean
 
   color?: keyof typeof colorVariants
-  variant?: 'flat' | 'tonal'
+  variant?: 'flat' | 'tonal' | 'text'
 
   textColor?: string
 }

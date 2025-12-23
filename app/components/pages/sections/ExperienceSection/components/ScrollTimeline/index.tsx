@@ -35,7 +35,7 @@ export function ScrollTimeline() {
     }
   }
 
-  useScroll({ onScroll, debounceTime: 1 })
+  useScroll({ onScroll, debounceTime: 5 })
 
   const experienceArr = [
     {

@@ -41,8 +41,24 @@ export function ProjectsSection() {
       title='Projetos e empresas'
       subtitle='Veja onde trabalhei'
       align='center'
+      contentWidthClass='w-full'
     >
-      <div className='flex items-center justify-center gap-8'>
+      <div
+        className={`
+          flex
+          lg:items-center
+          lg:justify-center
+          lg:gap-8
+
+          overflow-auto
+
+          w-100vw
+          h-160
+
+          px-10
+          pb-10
+        `}
+      >
         {
           projectsArr.map((projectData, projectIndex) => (
             <ProjectCard

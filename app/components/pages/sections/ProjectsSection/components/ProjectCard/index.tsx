@@ -1,3 +1,7 @@
+'use client'
+
+import { motion } from 'motion/react'
+
 import { DefaultButton } from '@/app/components/commons/DefaultButton'
 
 interface ProjectCardProps {
@@ -19,39 +23,71 @@ export function ProjectCard({
   description,
 }: ProjectCardProps) {
   return (
-    <article
+    <motion.article
+      initial={{
+        opacity: 0,
+      }}
+      whileInView={{
+        opacity: 1,
+      }}
       className={`
+        min-w-100
+        h-full
+      
+        p-8
+        aspect-2/3
+
         flex
         flex-col
-        flex-[1_1_0]
-      
-        aspect-2/3
-        p-8
-      
-        xl:rounded-[60px]
-        lg:rounded-[45px]
-        rounded-3xl
+
+        lg:mr-0
+        mr-6
+        
+        rounded-[45px]
       
         ${gradient}
         bg-linear-135
       
         text-white
 
-        shadow-2xl
+        shadow-xl
       `}
     >
-      <header className='relative flex items-center justify-center h-1/2 text-center'>
-        <h3 className='transform-[translateY(48px)] text-7xl font-extrabold tracking-tight'>
+      <header className='relative flex items-center justify-center h-1/2 text-center whitespace-normal'>
+        <h3 className='transform-[translateY(48px)] text-6xl sm:text-7xl font-extrabold tracking-tight'>
           { title }
         </h3>
 
-        <p className={`absolute top-0 left-0 flex items-center justify-center min-w-45 h-14 rounded-full bg-white ${companyColor} text-2xl tracking-tight`}>
+        <p
+          className={`
+            ${companyColor}
+
+            absolute
+            top-0
+            left-0
+        
+            flex
+            items-center
+            justify-center
+        
+            min-w-45
+            h-14
+        
+            rounded-full
+        
+            bg-white
+        
+            sm:text-2xl
+            text-xl
+            tracking-tight
+          `}
+        >
           { company }
         </p>
       </header>
 
-      <div className='flex flex-col flex-[1_1_0] gap-6 items-start justify-end'>
-        <p>
+      <div className='flex flex-col h-1/2 gap-6 items-start justify-end'>
+        <p className='whitespace-normal'>
           { description }
         </p>
 
@@ -63,6 +99,6 @@ export function ProjectCard({
           Visitar no site
         </DefaultButton>
       </div>
-    </article>
+    </motion.article>
   )
 }

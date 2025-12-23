@@ -13,6 +13,7 @@ interface LandingPageSectionProps {
   backgroundClass?: string,
   headerTitleColorClass?: string
   headerSubTitleColorClass?: string
+  contentWidthClass?: string
 }
 
 export function LandingPageSection({
@@ -29,6 +30,7 @@ export function LandingPageSection({
   backgroundClass,
   headerTitleColorClass = 'text-black',
   headerSubTitleColorClass = 'text-primary',
+  contentWidthClass = 'max-w-[90vw] w-350',
 }: LandingPageSectionProps) {
   const largerTitleStyle = `
     ${headerTitleColorClass}
@@ -63,16 +65,21 @@ export function LandingPageSection({
           items-center
           justify-center
           gap-16
-
+          
           mx-auto
-          max-w-[80vw]
-          w-350
+          ${contentWidthClass}
 
           lg:flex-row
         `}
       >
-        <div>
-          <header className={`${align === 'center' ? 'text-center' : ''} mb-16`}>
+        <div className={append ? 'ld:w-1/2 w-full' : 'w-full'}>
+          <header
+            className={`
+              ${align === 'center' ? 'text-center' : 'text-center lg:text-start'}
+              sm:mb-16
+              mb-8
+            `}
+          >
             <h2 className={subtitle ? smallerTitleStyle : largerTitleStyle}>
               { title }
             </h2>
@@ -89,7 +96,13 @@ export function LandingPageSection({
           { children }
         </div>
 
-        { append }
+        {
+          append && (
+            <div className='ld:w-1/2 w-full'>
+              { append }
+            </div>
+          )
+        }
       </div>
     </section>
   )

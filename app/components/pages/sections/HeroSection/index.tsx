@@ -49,7 +49,9 @@ export function HeroSection() {
           `}
         >
           <h2 className='flex flex-col mb-6'>
-            <span className='text-white/80'>Olá! Me chamo <span className='font-bold'>Alessandro Cídney</span> e sou um</span>
+            <span className='text-white/80 lg:text-base text-sm'>
+              Olá! Me chamo <span className='font-bold'>Alessandro Cídney</span> e sou um
+            </span>
 
             <span
               className={`
