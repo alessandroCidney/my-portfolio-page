@@ -30,7 +30,7 @@ export function LandingPageSection({
   backgroundClass,
   headerTitleColorClass = 'text-black',
   headerSubTitleColorClass = 'text-primary',
-  contentWidthClass = 'max-w-[90vw] w-350',
+  contentWidthClass = 'lg:w-400 lg:max-w-[80vw] w-full',
 }: LandingPageSectionProps) {
   const largerTitleStyle = `
     ${headerTitleColorClass}

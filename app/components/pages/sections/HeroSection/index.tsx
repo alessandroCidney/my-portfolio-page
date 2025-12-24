@@ -29,13 +29,15 @@ export function HeroSection() {
           mx-auto
 
           lg:flex-row
+
           lg:w-400
           lg:max-w-[80vw]
-          lg:text-start
-          lg:py-0
-
           w-full
+          
+          lg:text-start
           text-center
+
+          lg:py-0
           py-20
         `}
       >

@@ -49,8 +49,8 @@ export function DefaultHeader() {
       `}
     >
       <div className='lg:w-400 lg:max-w-[80vw] h-full flex items-center justify-between mx-auto'>
-        <h1 className='lg:pl-2 text-2xl font-extrabold'>
-          Portfólio
+        <h1 className='text-2xl font-extrabold'>
+          Portfólio <span className='sr-only'>de Alessandro Cídney - Desenvolvedor Web e Front-end</span>
         </h1>
       
         <DefaultButton

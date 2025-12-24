@@ -15,7 +15,7 @@ export function OtherLinksSection() {
         </h2>
       </header>
 
-      <div className='max-w-[90vw] w-350 mx-auto [&>.link-banner]:mb-10'>
+      <div className='max-w-[80vw] w-350 mx-auto [&>.link-banner]:mb-10'>
         <LinkBanner
           title='Veja meus projetos pessoais no GitHub'
           gradientClass='bg-linear-90 from-gray-700 to-gray-950'
