@@ -9,7 +9,7 @@ export function HeroSection() {
         flex
         items-center
         justify-center
-        bg-[url(/images/backgrounds/background-pattern-icons.jpg)]
+        bg-[url(/images/backgrounds/background-pattern-icons.svg)]
 
         lg:max-h-250
         lg:h-[110dvh]

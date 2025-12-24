@@ -51,7 +51,7 @@ export function LandingPageSection({
     text-2xl
   `
 
-  const finalBackgroundClass = backgroundClass ?? 'even:bg-gray-100 odd:bg-gray-50'
+  const finalBackgroundClass = backgroundClass ?? 'odd:bg-gray-100 even:bg-gray-50'
 
   return (
     <section

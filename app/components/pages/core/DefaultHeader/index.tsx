@@ -35,46 +35,60 @@ export function DefaultHeader() {
   }, [debouncedCheckScroll])
   return (
     <header
-      className={`${userScrolledDown ? 'bg-white/90 backdrop-blur-lg shadow-sm text-primary' : 'text-white'} z-11 fixed flex items-center justify-between w-full h-18 px-4 transition-all`}
-    >
-      <h1 className='lg:pl-2 text-xl font-extrabold'>
-        Portfólio
-      </h1>
+      className={`
+        ${userScrolledDown ? 'bg-white/95 backdrop-blur-lg shadow-sm text-primary' : 'text-white'}
+
+        z-11
       
-      <DefaultButton
-        icon
-        variant='text'
-        color='white'
-        className='block lg:hidden z-3 absolute right-2 top-1/2 transform-[translateY(-50%)]'
-        onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
-      >
-        <FontAwesomeIcon
-          icon={sidebarIsOpen ? faClose : faBars}
-          className={sidebarIsOpen || userScrolledDown ? 'text-primary' : 'text-white'}
-          size='xl'
-        />
-      </DefaultButton>
-
-      <FloatingNavigationSidebar
-        className='block lg:hidden'
-        open={sidebarIsOpen}
-        setOpen={setSidebarIsOpen}
-        routes={landingPageRoutes}
-      />
-
-      <InlineNavigationBar
-        className='hidden lg:block'
-        routes={landingPageRoutes}
-      />
-
-      <div className='hidden lg:flex gap-2'>
+        fixed
+      
+        w-full
+        h-18
+      
+        px-4
+      `}
+    >
+      <div className='lg:w-400 lg:max-w-[80vw] h-full flex items-center justify-between mx-auto'>
+        <h1 className='lg:pl-2 text-2xl font-extrabold'>
+          Portfólio
+        </h1>
+      
         <DefaultButton
-          href={process.env.NEXT_PUBLIC_LINKEDIN_URL}
-          target='_blank'
-          link
+          icon
+          variant='text'
+          color='white'
+          position='absolute'
+          className='block lg:hidden z-3 right-2 top-1/2 transform-[translateY(-50%)]'
+          onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
         >
-          Contratar
+          <FontAwesomeIcon
+            icon={sidebarIsOpen ? faClose : faBars}
+            className={sidebarIsOpen || userScrolledDown ? 'text-primary' : 'text-white'}
+            size='xl'
+          />
         </DefaultButton>
+
+        <FloatingNavigationSidebar
+          className='block lg:hidden'
+          open={sidebarIsOpen}
+          setOpen={setSidebarIsOpen}
+          routes={landingPageRoutes}
+        />
+
+        <InlineNavigationBar
+          className='hidden lg:block'
+          routes={landingPageRoutes}
+        />
+
+        <div className='hidden lg:flex gap-2'>
+          <DefaultButton
+            href={process.env.NEXT_PUBLIC_LINKEDIN_URL}
+            target='_blank'
+            link
+          >
+            Contratar
+          </DefaultButton>
+        </div>
       </div>
     </header>
   )

@@ -10,7 +10,7 @@ const colorVariants = {
   },
   white: {
     variants: {
-      flat: 'bg-white hover:bg-white-darken-1 text-primary',
+      flat: 'bg-gray-50 hover:bg-gray-200 text-black',
       tonal: 'bg-white/20 hover:bg-white/30 text-white',
       text: 'bg-transparent hover:bg-white/20 text-white',
     },
@@ -25,7 +25,7 @@ interface BaseProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
   color?: keyof typeof colorVariants
   variant?: 'flat' | 'tonal' | 'text'
-
+  position?: string
   textColor?: string
 
   large?: boolean
@@ -62,6 +62,7 @@ export function DefaultButton({
 
   color = 'primary',
   variant = 'flat',
+  position = 'relative',
 
   className,
 
@@ -72,7 +73,7 @@ export function DefaultButton({
 }: (ActionButtonProps | LinkButtonProps) & BaseProps) {
 
   const classNameStr = useMemo(() => {
-    const classNameArr = [`${colorVariants[color].variants[variant]} rounded-full cursor-pointer flex items-center justify-center`]
+    const classNameArr = [`${colorVariants[color].variants[variant]} ${position} rounded-full font-medium tracking-tight cursor-pointer flex items-center justify-center`]
 
     if (icon) {
       classNameArr.push('size-12')
@@ -83,9 +84,7 @@ export function DefaultButton({
     }
     
     if (block) {
-      classNameArr.push('w-full font-medium')
-    } else {
-      classNameArr.push('font-medium')
+      classNameArr.push('w-full')
     }
 
     if (className) {
@@ -93,7 +92,7 @@ export function DefaultButton({
     }
 
     return classNameArr.join(' ')
-  }, [block, className, color, icon, large, variant])
+  }, [block, className, color, icon, large, position, variant])
 
   const nodeItems = { children, appendIcon }
 

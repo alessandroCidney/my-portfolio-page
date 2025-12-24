@@ -1,7 +1,7 @@
 # My Portfolio Page
 This project includes my portfolio page, showcasing projects I've worked on, personal projects, and some of my skills.
 
-![Screenshot of the portfolio page](./public/images/photos/page-print.png)
+![Screenshot of the portfolio page](./public/images/photos/first-section.jpg)
 
 ## Live Website
 You can access the website at <https://www.linksdoale.com.br>

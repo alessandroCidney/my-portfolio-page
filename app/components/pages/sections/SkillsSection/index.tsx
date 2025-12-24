@@ -92,7 +92,7 @@ export function HardSkillsSection() {
           .filter(skillTitle => skillTitle.toLowerCase().includes(newStr.toLowerCase())),
       )
     } else {
-      reloadSelectedSkills()
+      setSelectedSkills([])
     }
 
     setSearchStr(newStr)
@@ -103,6 +103,8 @@ export function HardSkillsSection() {
 
     if (bool) {
       setSelectedSkills([])
+    } else {
+      reloadSelectedSkills()
     }
   }
 
@@ -121,11 +123,14 @@ export function HardSkillsSection() {
   return (
     <LandingPageSection
       id='skills'
-      title='Skills'
+      title='Minhas Skills'
       align='center'
     >
-      <form className='flex items-center justify-start mx-auto w-200 max-w-[80vw] h-18 mb-16 overflow-hidden border-2 border-gray-200 rounded-full'>
-        <label className='relative flex items-center justify-start'>
+      <form
+        className='flex items-center justify-start mx-auto w-200 max-w-[80vw] h-18 mb-16 overflow-hidden bg-white border-2 border-gray-200 rounded-full'
+        onSubmit={(e) => e.preventDefault()}
+      >
+        <label className='relative h-full w-full flex items-center justify-start'>
           <span className='sr-only'>
             Nome da Skill
           </span>
@@ -139,7 +144,8 @@ export function HardSkillsSection() {
           <input
             type='text'
             placeholder='Digite uma habilidade'
-            className='w-full h-full outline-none'
+            name='skill'
+            className='h-full outline-none flex-[1_1_0]'
             onChange={(e) => handleUpdateSearch(e.target.value)}
             onFocus={(e) => handleFocus(true)}
             onBlur={(e) => handleFocus(false)}

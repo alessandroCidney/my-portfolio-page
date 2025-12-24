@@ -3,6 +3,8 @@
 import { motion } from 'motion/react'
 
 import { DefaultButton } from '@/app/components/commons/DefaultButton'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 interface ProjectCardProps {
   title: string
@@ -18,6 +20,7 @@ interface ProjectCardProps {
 export function ProjectCard({
   title,
   company,
+  url,
   gradient,
   companyColor,
   description,
@@ -34,7 +37,7 @@ export function ProjectCard({
         min-w-100
         h-full
       
-        p-8
+        p-6
         aspect-2/3
 
         flex
@@ -43,7 +46,7 @@ export function ProjectCard({
         lg:mr-0
         mr-6
         
-        rounded-[45px]
+        rounded-4xl
       
         ${gradient}
         bg-linear-135
@@ -92,10 +95,20 @@ export function ProjectCard({
         </p>
 
         <DefaultButton
+          href={url}
+          target='_blank'
           color='white'
           variant='tonal'
           block
           large
+          link
+          appendIcon={
+            <div className='absolute size-12 top-1/2 right-1 transform-[translateY(-50%)] flex items-center justify-center bg-white/90 text-black rounded-full'>
+              <FontAwesomeIcon
+                icon={faChevronRight}
+              />
+            </div>
+          }
         >
           Visitar no site
         </DefaultButton>
