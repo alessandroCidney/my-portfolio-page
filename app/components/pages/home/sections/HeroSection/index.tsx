@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { DefaultButton } from '@/app/components/commons/DefaultButton'
 
 export function HeroSection() {
+
   return (
     <section
       className={`

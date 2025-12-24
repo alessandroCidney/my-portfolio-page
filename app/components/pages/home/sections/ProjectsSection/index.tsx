@@ -1,4 +1,4 @@
-import { LandingPageSection } from '../../core/LandingPageSection'
+import { LandingPageSection } from '@/app/components/pages/home/core/LandingPageSection'
 import { ProjectCard } from './components/ProjectCard'
 
 export function ProjectsSection() {

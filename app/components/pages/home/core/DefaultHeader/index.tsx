@@ -2,19 +2,22 @@
 
 import { useEffect, useState } from 'react'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-import { faBars, faClose } from '@fortawesome/free-solid-svg-icons'
+import { useTranslations } from 'next-intl'
 
-import { DefaultButton } from '@/app/components/commons/DefaultButton'
-import { FloatingNavigationSidebar } from './components/FloatingNavigationSidebar'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars, faClose } from '@fortawesome/free-solid-svg-icons'
 
 import { debounce } from '@/app/utils'
 import { getScrollPosition } from '@/app/utils/scroll'
 import { landingPageRoutes } from '@/app/utils/links'
+
+import { DefaultButton } from '@/app/components/commons/DefaultButton'
+import { FloatingNavigationSidebar } from './components/FloatingNavigationSidebar'
 import { InlineNavigationBar } from './components/InlineNavigationBar'
 
 export function DefaultHeader() {
+  const t = useTranslations('components.pages.home.core.default_header')
+
   const [userScrolledDown, setUserScrolledDown] = useState(false)
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false)
 
@@ -50,7 +53,8 @@ export function DefaultHeader() {
     >
       <div className='lg:w-400 lg:max-w-[80vw] h-full flex items-center justify-between mx-auto'>
         <h1 className='text-2xl font-extrabold'>
-          Portfólio <span className='sr-only'>de Alessandro Cídney - Desenvolvedor Web e Front-end</span>
+          { t('title.visible') }
+          <span className='sr-only'>{ t('title.sr_only') }</span>
         </h1>
       
         <DefaultButton
@@ -86,7 +90,7 @@ export function DefaultHeader() {
             target='_blank'
             link
           >
-            Contratar
+            { t('action.hire') }
           </DefaultButton>
         </div>
       </div>

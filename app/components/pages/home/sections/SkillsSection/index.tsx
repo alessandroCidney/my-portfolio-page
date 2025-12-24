@@ -1,12 +1,11 @@
 'use client'
 
-import Image from 'next/image'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { useCallback, useEffect, useMemo, useState } from 'react'
-import { LandingPageSection } from '../../core/LandingPageSection'
+import { LandingPageSection } from '@/app/components/pages/home/core/LandingPageSection'
 
 export function HardSkillsSection() {
   const [searchStr, setSearchStr] = useState('')

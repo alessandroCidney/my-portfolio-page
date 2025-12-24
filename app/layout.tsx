@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
-import './globals.css'
+import { NextIntlClientProvider } from 'next-intl'
 
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
+
+import '@/app/globals.css'
 
 config.autoAddCss = false
 
@@ -23,12 +25,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='pt-BR'>
+    <html>
       <body
         className={`${inter.className} antialiased`}
         suppressHydrationWarning
       >
-        {children}
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>
   )

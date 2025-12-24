@@ -3,11 +3,11 @@
 import { useState } from 'react'
 
 import { faCheck, faCopy, faEnvelope, faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
-import { DefaultButton } from '@/app/components/commons/DefaultButton'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
-import { LandingPageSection } from '../../core/LandingPageSection'
+import { LandingPageSection } from '@/app/components/pages/home/core/LandingPageSection'
+import { DefaultButton } from '@/app/components/commons/DefaultButton'
 import { ContactMethod } from './components/ContactMethod'
 
 export function ContactSection() {

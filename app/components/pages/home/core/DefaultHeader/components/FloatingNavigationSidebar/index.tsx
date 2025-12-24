@@ -1,8 +1,9 @@
 'use client'
 
 import Link from 'next/link'
-import React, { Dispatch, SetStateAction, useRef } from 'react'
+import { Dispatch, SetStateAction, useRef } from 'react'
 
+import { useTranslations } from 'next-intl'
 import { AnimatePresence, motion } from 'motion/react'
 
 interface FloatingNavigationSidebarProps {
@@ -18,6 +19,8 @@ interface FloatingNavigationSidebarProps {
 }
 
 export function FloatingNavigationSidebar({ open, setOpen, routes, className }: FloatingNavigationSidebarProps) {
+  const t = useTranslations('components.pages.home.core.default_header.components.floating_navigation_sidebar')
+  
   const ulRef = useRef<HTMLUListElement>(null)
 
   return (
@@ -51,7 +54,7 @@ export function FloatingNavigationSidebar({ open, setOpen, routes, className }: 
               }}
             >
               <h2 className='text-lg font-bold text-gray-800 p-6'>
-                Navegação
+                { t('title') }
               </h2>
 
               <nav>
@@ -105,7 +108,7 @@ export function FloatingNavigationSidebar({ open, setOpen, routes, className }: 
             className='z-1 fixed top-0 left-0 h-dvh w-full bg-black/20 text-transparent'
             onClick={() => setOpen(false)}
           >
-            Fechar
+            { t('action.close') }
           </button>
         )
       }

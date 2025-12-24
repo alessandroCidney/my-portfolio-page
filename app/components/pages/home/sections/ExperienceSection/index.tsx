@@ -1,5 +1,5 @@
+import { LandingPageSection } from '@/app/components/pages/home/core/LandingPageSection'
 import { ScrollTimeline } from './components/ScrollTimeline'
-import { LandingPageSection } from '../../core/LandingPageSection'
 
 export function ExperienceSection() {
   return (

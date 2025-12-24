@@ -1,0 +1,29 @@
+{
+  "components": {
+    "pages": {
+      "home": {
+        "core": {
+          "default_header": {
+            "title": {
+              "visible": "Portfólio",
+              "sr_only": "de Alessandro Cídney - Desenvolvedor Web e Front-end"
+            },
+
+            "action": {
+              "hire": "Contratar"
+            },
+
+            "components": {
+              "floating_navigation_sidebar": {
+                "title": "Navegação",
+                "action": {
+                  "close": "Fechar"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

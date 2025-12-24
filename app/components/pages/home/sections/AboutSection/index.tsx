@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { LandingPageSection } from '../../core/LandingPageSection'
+import { LandingPageSection } from '@/app/components/pages/home/core/LandingPageSection'
 
 export function AboutSection() {
   return (
