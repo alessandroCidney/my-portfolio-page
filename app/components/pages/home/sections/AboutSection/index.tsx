@@ -40,7 +40,7 @@ export function AboutSection() {
           link
           large
         >
-          Entre em contato
+          { t('actions.contact') }
         </DefaultButton>
       </div>
     </LandingPageSection>

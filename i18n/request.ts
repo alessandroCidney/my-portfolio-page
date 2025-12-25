@@ -16,7 +16,7 @@ async function getPreferredLocale() {
 }
  
 export default getRequestConfig(async () => {
-  const locale = await getPreferredLocale()
+  const locale = 'en' // await getPreferredLocale()
  
   return {
     locale,
