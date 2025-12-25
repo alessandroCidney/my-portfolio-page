@@ -1,8 +1,11 @@
 import Image from 'next/image'
 
+import { useTranslations } from 'next-intl'
+
 import { DefaultButton } from '@/app/components/commons/DefaultButton'
 
 export function HeroSection() {
+  const t = useTranslations('components.pages.home.sections.hero')
 
   return (
     <section
@@ -51,28 +54,36 @@ export function HeroSection() {
             max-w-9/10
           `}
         >
-          <h2 className='flex flex-col mb-6'>
-            <span className='text-white/80 lg:text-base text-sm'>
-              Olá! Me chamo <span className='font-bold'>Alessandro Cídney</span> e sou um
-            </span>
-
-            <span
-              className={`
-                text-white
-                font-extrabold
-                tracking-tighter
-
-                xl:text-8xl
-                sm:text-6xl
-                text-4xl
-              `}
-            >
-              Desenvolvedor Web e Front-End
-            </span>
+          <h2 className='sr-only'>
+            { t('title') }
           </h2>
 
+          <p className='flex flex-col mb-6'>
+            {
+              t.rich('large_description', {
+                'small-text': (chunks) => <span className='text-white/80 lg:text-base text-sm'>{chunks}</span>,
+                'bold-text': (chunks) => <span className='font-bold'>{chunks}</span>,
+                'giant-text': (chunks) => (
+                  <span
+                    className={`
+                      text-white
+                      font-extrabold
+                      tracking-tighter
+
+                      xl:text-8xl
+                      sm:text-6xl
+                      text-4xl
+                    `}
+                  >
+                    {chunks}
+                  </span>
+                ),
+              })
+            }
+          </p>
+
           <p className='mb-6 text-white/70'>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum neque dignissimos rerum aliquam ipsa praesentium ducimus quos enim, assumenda illo exercitationem? Repellendus, vel facere. Optio quisquam quibusdam consequuntur ab voluptatum?
+            { t('small_description') }
           </p>
 
           <div className='inline-block'>
@@ -82,7 +93,7 @@ export function HeroSection() {
               large
               link
             >
-              Contratar
+              { t('actions.hire') }
             </DefaultButton>
           </div>
         </div>
@@ -100,7 +111,7 @@ export function HeroSection() {
         >
           <Image
             src='/images/photos/me1.png'
-            alt='Retrato de Alessandro'
+            alt={ t('images.portrait') }
             fill
           />
         </div>

@@ -4,13 +4,11 @@
       "home": {
         "core": {
           "default_header": {
-            "title": {
-              "visible": "Portfólio",
-              "sr_only": "de Alessandro Cídney - Desenvolvedor Web e Front-end"
-            },
+            "title": "Portfólio<sr-only> de Alessandro Cídney - Desenvolvedor Web e Front-end</sr-only>",
 
-            "action": {
-              "hire": "Contratar"
+            "actions": {
+              "hire": "Contratar",
+              "change_language": "Alterar linguagem"
             },
 
             "components": {
@@ -21,8 +19,192 @@
                 }
               }
             }
+          },
+
+          "default_footer": {
+            "built_with": "Criado com <bold-text>React</bold-text> e <bold-text>Next.js</bold-text>"
+          }
+        },
+
+        "sections": {
+          "hero": {
+            "title": "Introdução",
+            "large_description": "<small-text>Olá! Me chamo <bold-text>Alessandro Cídney</bold-text> e sou um</small-text> <giant-text>Desenvolvedor Web e Front-End</giant-text>",
+            "small_description": "Possuo mais de 3 anos de experiência na criação de websites, interfaces e sistemas robustos e eficientes. Minha maior missão é ajudar as empresas e clientes a atingirem suas metas e objetivos, me desenvolvendo cada vez mais profissionalmente.",
+
+            "images": {
+              "portrait": "Retrato de Alessandro Cídney"
+            },
+
+            "actions": {
+              "hire": "Contratar"
+            }
+          },
+
+          "projects_and_companies": {
+            "title": "Principais projetos e empresas",
+            "subtitle": "Veja onde trabalhei",
+
+            "projects_list": {
+              "santo_id": {
+                "title": "Santo iD",
+                "company": "SantoDigital",
+                "description": "Plataforma para análise, validação e extração de informações de documentos utilizando inteligência artificial e machine learning."
+              },
+
+              "santo_ai": {
+                "title": "Santo AI",
+                "company": "SantoDigital",
+                "description": "Assistente baseado em IA generativa, com funções diversas como geração de texto, imagens e código."
+              },
+
+              "santo_id_saude": {
+                "title": "Santo iD Saúde",
+                "company": "SantoDigital",
+                "description": "Nova versão da plataforma Santo iD focada no processamento de documentos e informações relacionadas à área da saúde."
+              }
+            },
+
+            "actions": {
+              "access_website": "Visitar o site"
+            }
+          },
+
+          "skills": {
+            "title": "Minhas Skills",
+
+            "forms": {
+              "search_skill_form": {
+                "fields": {
+                  "skill_name": {
+                    "label": "Nome da Skill",
+                    "placeholder": "Digite uma habilidade"
+                  }
+                }
+              }
+            }
+          },
+
+          "about_me": {
+            "title": "Sobre mim",
+            "subtitle": "Conheça minha história",
+
+            "content": "Me chamo Alessandro Cídney, e sou um desenvolvedor web e front-end com mais de 3 anos de experiência participando do desenvolvimento de diversos sitemas e websites.<line-break></line-break>Durante minha carreira, trabalhei em conjunto com diversos desenvolvedores front-end e back-end, engenheiros de machine learning, designers e stakeholders, buscando sempre implementar as melhores soluções para as demandas dos clientes e necessidades dos usuários.<line-break></line-break>Ao longo de minha trajetória, trabalhei em diversos projetos, sendo os principais 3 grandes projetos da empresa SantoDigital: o Santo iD, um sistema de análise automatizada de documentos e processamento de informações; o Santo AI, um assistente de IA robusto com diversas funcionalidades; e o Santo iD Saúde, uma versão do Santo iD focada no atendimento de clientes relacionados à área da saúde, com diversas funcionalidades adaptadas para esse setor.<line-break></line-break>Além disso, também participei da implementação de páginas e melhorias em diversos sistemas, intranets e chatbots de clientes.<line-break></line-break>Por fim, auxiliei na análise e desenvolvimento de protótipos e designs usando o Figma e a supervisionar desenvolvedores júnior e estagiários, realizando revisão de código, orientações e promovendo sempre as melhores práticas de desenvolvimento.<line-break></line-break>O que acha de trabalharmos juntos no seu próximo projeto e o levar ao próximo nível?",
+
+            "images": {
+              "selfie": "Selfie de Alessandro Cídney"
+            },
+
+            "actions": {
+              "contact": "Entre em contato"
+            }
+          },
+
+          "experience": {
+            "title": "Experiência profissional",
+            "subtitle": "Acompanhe minha trajetória",
+
+            "experience_list": {
+              "mid_front_end_developer": {
+                "title": "Desenvolvedor Front-End Pleno",
+                "time": "2024 - 2025",
+                "company": "SantoDigital",
+                "description_list": {
+                  "item_1": "Participação na implementação de mais de 30 páginas e centenas de funcionalidades, contribuindo para o atingimento de metas e satisfação dos clientes da empresa.",
+                  "item_2": "Criação de 2 SDKs de integração para sistemas complexos da empresa, facilitando a integração dos serviços com sistemas de clientes.",
+                  "item_3": "Participação em uma reformulação completa no design de produtos visando à atender clientes voltados à área da saúde.",
+                  "item_4": "Implementação de diversas melhorias e atualizações no CI/CD de 5 projetos complexos, acelerando o deploy de aplicações e deixando os pipelines de implantação mais eficientes e robustos.",
+                  "item_5": "Correção de dezenas de bugs em sistemas internos, promovendo a estabilidade de operação dos sistemas da empresa.",
+                  "item_6": "Supervisão e orientação de desenvolvedores júnior e estagiários, contribuindo para o treinamento de novos profissionais experientes para a empresa e para o mercado."
+                }
+              },
+
+              "junior_front_end_developer": {
+                "title": "Desenvolvedor Front-End Júnior",
+                "time": "2022 - 2023",
+                "company": "SantoDigital",
+                "description_list": {
+                  "item_1": "Participação na implementação de mais de 30 páginas e centenas de funcionalidades, contribuindo para o atingimento de metas e satisfação dos clientes da empresa.",
+                  "item_2": "Adaptação de 2 projetos internos para a arquitetura micro-frontend em conjunto com a construção e utilização de um sistema de SSO (Single Sign-On)",
+                  "item_3": "Correção de dezenas de bugs em sistemas internos, promovendo a estabilidade de operação dos sistemas da empresa."
+                }
+              },
+
+              "front_end_trainee": {
+                "title": "Estagiário de Desenvolvimento Front-End",
+                "time": "2021 - 2022",
+                "company": "SantoDigital",
+                "description_list": {
+                  "item_1": "Participação na implementação de melhorias em dezenas de páginas de produtos da empresa, contribuindo para a expansão do conjunto de serviços ofertados pela empresa.",
+                  "item_2": "Correção de dezenas de bugs em sistemas internos, promovendo a estabilidade de operação dos sistemas da empresa.",
+                  "item_3": "Realização de reformulação completa no design de um dos produtos principais da empresa, promovendo melhorias de UI/UX em colaboração com designers profissionais."
+                }
+              }
+            }
+          },
+
+          "other_links": {
+            "title": "Outros links",
+
+            "cards": {
+              "github": {
+                "title": "Veja meus projetos pessoais no GitHub"
+              },
+
+              "medium": {
+                "title": "Veja meus artigos no Medium"
+              }
+            },
+
+            "actions": {
+              "access_website": "Acessar"
+            }
+          },
+
+          "contact": {
+            "title": "Vamos trabalhar juntos?",
+            "subtitle": "Entre em contato",
+
+            "description": "Você pode entrar em contato por meio de um dos métodos abaixo:",
+
+            "cards": {
+              "linkedin": {
+                "content": "Mande uma mensagem pelo <bold-text>LinkedIn</bold-text>",
+
+                "actions": {
+                  "access_website": "Acessar LinkedIn"
+                }
+              },
+              "email": {
+                "content": "Envie um e-mail para <bold-text>{emailEnv}</bold-text>",
+
+                "actions": {
+                  "copy_text": "Copiar Endereço",
+                  "copy_text_successful": "Copiado"
+                }
+              }
+            }
           }
         }
+      }
+    }
+  },
+
+  "hooks": {
+    "use_routes": {
+      "landing_page_routes": {
+        "start": "Início",
+        "projects": "Projetos",
+        "skills": "Skills",
+        "about_me": "Sobre mim",
+        "experience": "Experiência",
+        "contact": "Contato"
+      },
+
+      "social_media_links": {
+        "linkedin": "LinkedIn",
+        "medium": "Medium",
+        "github": "GitHub"
       }
     }
   }

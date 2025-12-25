@@ -1,8 +1,8 @@
-import { ReactNode } from 'react'
+import { useTranslations } from 'next-intl'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronRight, IconDefinition } from '@fortawesome/free-solid-svg-icons'
 
 import { DefaultButton } from '@/app/components/commons/DefaultButton'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronRight, faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 
 interface LinkBannerProps {
   gradientClass: string
@@ -12,10 +12,12 @@ interface LinkBannerProps {
 
   url: string
 
-  icon: ReactNode
+  icon: IconDefinition
 }
 
 export function LinkBanner({ title, url, icon, gradientClass, textColorClass }: LinkBannerProps) {
+  const t = useTranslations('components.pages.home.sections.other_links')
+
   return (
     <article className={`link-banner ${gradientClass} ${textColorClass} relative flex md:items-center justify-between p-9 md:p-12 rounded-4xl`}>
       <div>
@@ -41,13 +43,23 @@ export function LinkBanner({ title, url, icon, gradientClass, textColorClass }: 
               </div>
             }
           >
-            Acessar
+            { t('actions.access_website') }
           </DefaultButton>  
         </div>
       </div>
 
       <div>
-        { icon }
+        <FontAwesomeIcon
+          icon={icon}
+          className='hidden! md:block!'
+          size='10x'
+        />
+
+        <FontAwesomeIcon
+          icon={icon}
+          className='block! md:hidden!'
+          size='3x'
+        />
       </div>
     </article>
   )

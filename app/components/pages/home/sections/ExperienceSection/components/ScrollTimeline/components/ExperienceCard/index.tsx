@@ -1,4 +1,4 @@
-import { RefObject, useMemo, useRef, useState } from 'react'
+import { ReactNode, RefObject, useRef, useState } from 'react'
 
 import { AnimatePresence, motion } from 'motion/react'
 
@@ -9,7 +9,7 @@ interface ExperienceCardProps {
     job: string
     time: string
     company: string
-    description: string
+    descriptionList: ReactNode[]
   }
 
   timeLineProgress: number
@@ -108,9 +108,18 @@ export function ExperienceCard({ experienceData, timeLineProgress, containerRef,
         </p>
       </header>
 
-      <p>
-        { experienceData.description }
-      </p>
+      <ul className='list-disc transform-[translateX(1rem)]'>
+        {
+          experienceData.descriptionList.map((itemNode, itemNodeKey) => (
+            <li
+              key={`experienceItemKey${itemNodeKey}`}
+              className='mb-3'
+            >
+              { itemNode }
+            </li>
+          ))
+        }
+      </ul>
     </article>
   )
 }

@@ -1,11 +1,15 @@
 'use client'
 
 import { useRef, useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 import { useScroll } from '@/app/hooks/useScroll'
 import { ExperienceCard } from './components/ExperienceCard'
+import RichText from '@/app/components/commons/RichText'
 
 export function ScrollTimeline() {
+  const t = useTranslations('components.pages.home.sections.experience.experience_list')
+
   const containerRef = useRef<HTMLDivElement>(null)
   const timeLineProgressRef = useRef<HTMLDivElement>(null)
   const fullTimelineRef = useRef<HTMLDivElement>(null)
@@ -37,24 +41,33 @@ export function ScrollTimeline() {
 
   useScroll({ onScroll, debounceTime: 5 })
 
+  function generateExperienceItems(jobKey: string, amount: number) {
+    return Array.from(Array(amount).keys())
+      .map((n) => (
+        <RichText key='experience_item_1_key'>
+          { (tags) => t.rich(`${jobKey}.description_list.item_${n + 1}`, tags) }
+        </RichText>
+      ))
+  }
+
   const experienceArr = [
     {
-      job: 'Desenvolvedor Front-End Pleno',
-      time: '2024 - 2025',
-      company: 'SantoDigital',
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quo! Dolorem, suscipit culpa velit odit dolor minus numquam tenetur officia ullam nisi quia, amet eos magni reprehenderit unde corporis aspernatur?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quo! Dolorem, suscipit culpa velit odit dolor minus numquam tenetur officia ullam nisi quia, amet eos magni reprehenderit unde corporis aspernatur?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quo! Dolorem, suscipit culpa velit odit dolor minus numquam tenetur officia ullam nisi quia, amet eos magni reprehenderit unde corporis aspernatur?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quo! Dolorem, suscipit culpa velit odit dolor minus numquam tenetur officia ullam nisi quia, amet eos magni reprehenderit unde corporis aspernatur?',
+      job: t('mid_front_end_developer.title'),
+      time: t('mid_front_end_developer.time'),
+      company: t('mid_front_end_developer.company'),
+      descriptionList: generateExperienceItems('mid_front_end_developer', 6),
     },
     {
-      job: 'Desenvolvedor Front-End Júnior',
-      time: '2022 - 2023',
-      company: 'SantoDigital',
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quo! Dolorem, suscipit culpa velit odit dolor minus numquam tenetur officia ullam nisi quia, amet eos magni reprehenderit unde corporis aspernatur?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quo! Dolorem, suscipit culpa velit odit dolor minus numquam tenetur officia ullam nisi quia, amet eos magni reprehenderit unde corporis aspernatur?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quo! Dolorem, suscipit culpa velit odit dolor minus numquam tenetur officia ullam nisi quia, amet eos magni reprehenderit unde corporis aspernatur?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quo! Dolorem, suscipit culpa velit odit dolor minus numquam tenetur officia ullam nisi quia, amet eos magni reprehenderit unde corporis aspernatur?',
+      job: t('junior_front_end_developer.title'),
+      time: t('junior_front_end_developer.time'),
+      company: t('junior_front_end_developer.company'),
+      descriptionList: generateExperienceItems('junior_front_end_developer', 3),
     },
     {
-      job: 'Estagiário de Programação Front-End',
-      time: '2021 - 2022',
-      company: 'SantoDigital',
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quo! Dolorem, suscipit culpa velit odit dolor minus numquam tenetur officia ullam nisi quia, amet eos magni reprehenderit unde corporis aspernatur?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quo! Dolorem, suscipit culpa velit odit dolor minus numquam tenetur officia ullam nisi quia, amet eos magni reprehenderit unde corporis aspernatur?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quo! Dolorem, suscipit culpa velit odit dolor minus numquam tenetur officia ullam nisi quia, amet eos magni reprehenderit unde corporis aspernatur?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quo! Dolorem, suscipit culpa velit odit dolor minus numquam tenetur officia ullam nisi quia, amet eos magni reprehenderit unde corporis aspernatur?',
+      job: t('front_end_trainee.title'),
+      time: t('front_end_trainee.time'),
+      company: t('front_end_trainee.company'),
+      descriptionList: generateExperienceItems('front_end_trainee', 3),
     },
   ]
 

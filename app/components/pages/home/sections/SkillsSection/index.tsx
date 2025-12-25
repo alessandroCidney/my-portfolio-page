@@ -6,8 +6,11 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { LandingPageSection } from '@/app/components/pages/home/core/LandingPageSection'
+import { useTranslations } from 'next-intl'
 
 export function HardSkillsSection() {
+  const t = useTranslations('components.pages.home.sections.skills')
+
   const [searchStr, setSearchStr] = useState('')
   const [searchFocus, setSearchFocus] = useState(false)
   const [selectedSkills, setSelectedSkills] = useState<string[]>([])
@@ -122,7 +125,7 @@ export function HardSkillsSection() {
   return (
     <LandingPageSection
       id='skills'
-      title='Minhas Skills'
+      title={t('title')}
       align='center'
     >
       <form
@@ -131,7 +134,7 @@ export function HardSkillsSection() {
       >
         <label className='relative h-full w-full flex items-center justify-start'>
           <span className='sr-only'>
-            Nome da Skill
+            { t('forms.search_skill_form.fields.skill_name.label') }
           </span>
 
           <span className='text-gray-500 pl-4 pr-3'>
@@ -142,7 +145,7 @@ export function HardSkillsSection() {
 
           <input
             type='text'
-            placeholder='Digite uma habilidade'
+            placeholder={t('forms.search_skill_form.fields.skill_name.placeholder')}
             name='skill'
             className='h-full outline-none flex-[1_1_0]'
             onChange={(e) => handleUpdateSearch(e.target.value)}

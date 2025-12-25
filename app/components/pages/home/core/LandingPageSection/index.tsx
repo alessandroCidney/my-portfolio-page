@@ -30,7 +30,7 @@ export function LandingPageSection({
   backgroundClass,
   headerTitleColorClass = 'text-black',
   headerSubTitleColorClass = 'text-primary',
-  contentWidthClass = 'lg:w-400 lg:max-w-[80vw] w-full',
+  contentWidthClass = 'lg:w-400 lg:max-w-[80vw] w-[90vw]',
 }: LandingPageSectionProps) {
   const largerTitleStyle = `
     ${headerTitleColorClass}
@@ -75,7 +75,7 @@ export function LandingPageSection({
         <div className={append ? 'ld:w-1/2 w-full' : 'w-full'}>
           <header
             className={`
-              ${align === 'center' ? 'text-center' : 'text-center lg:text-start'}
+              ${align === 'center' ? 'text-center' : 'text-start'}
               sm:mb-16
               mb-8
             `}

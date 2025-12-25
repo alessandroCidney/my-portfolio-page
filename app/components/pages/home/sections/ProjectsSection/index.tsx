@@ -1,12 +1,16 @@
+import { useTranslations } from 'next-intl'
+
 import { LandingPageSection } from '@/app/components/pages/home/core/LandingPageSection'
 import { ProjectCard } from './components/ProjectCard'
 
 export function ProjectsSection() {
+  const t = useTranslations('components.pages.home.sections.projects_and_companies')
+
   const projectsArr = [
     {
-      title: 'Santo iD',
-      company: 'SantoDigital',
-      description: 'Plataforma para análise e validação de documentos utilizando inteligência artificial.',
+      title: t('projects_list.santo_id.title'),
+      company: t('projects_list.santo_id.company'),
+      description: t('projects_list.santo_id.description'),
 
       companyColor: 'text-[#A229A4]',
       gradient: 'bg-linear-150 from-[#A229A4] to-[#001499]',
@@ -14,9 +18,9 @@ export function ProjectsSection() {
       url: process.env.NEXT_PUBLIC_SANTO_ID_URL ?? '',
     },
     {
-      title: 'Santo AI',
-      company: 'SantoDigital',
-      description: 'Assistente baseado em IA generativa, com funções diversas como geração de texto, imagens e código.',
+      title: t('projects_list.santo_ai.title'),
+      company: t('projects_list.santo_ai.company'),
+      description: t('projects_list.santo_ai.description'),
 
       companyColor: 'text-blue-700',
       gradient: 'bg-linear-150 from-blue-700 to-sky-500',
@@ -24,9 +28,9 @@ export function ProjectsSection() {
       url: process.env.NEXT_PUBLIC_SANTO_AI_URL ?? '',
     },
     {
-      title: 'Santo iD Saúde',
-      company: 'SantoDigital',
-      description: 'aaaaaaaaa',
+      title: t('projects_list.santo_id_saude.title'),
+      company: t('projects_list.santo_id_saude.company'),
+      description: t('projects_list.santo_id_saude.description'),
 
       companyColor: 'text-sky-500',
       gradient: 'bg-linear-150 from-sky-500 to-cyan-400',
@@ -38,8 +42,8 @@ export function ProjectsSection() {
   return (
     <LandingPageSection
       id='projects-and-companies'
-      title='Principais projetos e empresas'
-      subtitle='Veja onde trabalhei'
+      title={t('title')}
+      subtitle={t('subtitle')}
       align='center'
       contentWidthClass='w-full'
     >

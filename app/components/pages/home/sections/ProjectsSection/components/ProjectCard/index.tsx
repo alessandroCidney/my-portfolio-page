@@ -5,6 +5,7 @@ import { motion } from 'motion/react'
 import { DefaultButton } from '@/app/components/commons/DefaultButton'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { useTranslations } from 'next-intl'
 
 interface ProjectCardProps {
   title: string
@@ -25,6 +26,8 @@ export function ProjectCard({
   companyColor,
   description,
 }: ProjectCardProps) {
+  const t = useTranslations('components.pages.home.sections.projects_and_companies')
+
   return (
     <motion.article
       initial={{
@@ -110,7 +113,7 @@ export function ProjectCard({
             </div>
           }
         >
-          Visitar no site
+          { t('actions.access_website') }
         </DefaultButton>
       </div>
     </motion.article>

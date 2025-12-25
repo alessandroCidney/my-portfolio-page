@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 
+import { useTranslations } from 'next-intl'
 import { faCheck, faCopy, faEnvelope, faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
@@ -9,8 +10,11 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { LandingPageSection } from '@/app/components/pages/home/core/LandingPageSection'
 import { DefaultButton } from '@/app/components/commons/DefaultButton'
 import { ContactMethod } from './components/ContactMethod'
+import RichText from '@/app/components/commons/RichText'
 
 export function ContactSection() {
+  const t = useTranslations('components.pages.home.sections.contact')
+
   const [copySuccess, setCopySuccess] = useState(false)
 
   async function copyEmailAddress() {
@@ -30,15 +34,15 @@ export function ContactSection() {
   return (
     <LandingPageSection
       id='contact'
-      title='Entre em contato'
-      subtitle='Vamos trabalhar juntos?'
+      title={t('title')}
+      subtitle={t('subtitle')}
       backgroundClass='bg-secondary'
       headerTitleColorClass='text-white'
       headerSubTitleColorClass='text-white/60'
       contentWidthClass='max-w-[90vw] w-250'
     >
       <p className='text-white mb-6'>
-        Você pode entrar em contato por meio de um dos métodos abaixo:
+        { t('description') }
       </p>
 
       <ul className='text-white'>
@@ -56,11 +60,13 @@ export function ContactSection() {
               link
               block
             >
-              Acessar LinkedIn
+              { t('cards.linkedin.actions.access_website') }
             </DefaultButton>
           }
         >
-          Mande uma mensagem pelo <span className='font-bold'>LinkedIn</span>
+          <RichText>
+            { (tags) => t.rich('cards.linkedin.content', tags) }
+          </RichText>
         </ContactMethod>
 
         <ContactMethod
@@ -76,11 +82,18 @@ export function ContactSection() {
               block
               onClick={copyEmailAddress}
             >
-              { copySuccess ? 'Copiado' : 'Copiar Endereço' }
+              { copySuccess ? t('cards.email.actions.copy_text_successful') : t('cards.email.actions.copy_text') }
             </DefaultButton>
           }
         >
-          Envie um e-mail para <span className='font-bold'>{process.env.NEXT_PUBLIC_CONTACT_EMAIL}</span>
+          <RichText>
+            {
+              (tags) => t.rich('cards.email.content', {
+                ...tags,
+                emailEnv: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? '',
+              })
+            }
+          </RichText>
         </ContactMethod>
       </ul>
     </LandingPageSection>

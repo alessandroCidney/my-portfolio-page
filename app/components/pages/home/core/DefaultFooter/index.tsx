@@ -1,12 +1,18 @@
 import Link from 'next/link'
 
+import { useTranslations } from 'next-intl'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { DefaultButton } from '@/app/components/commons/DefaultButton'
 
-import { landingPageRoutes, socialMediaArr } from '@/app/utils/links'
+import { useRoutes } from '@/app/hooks/useRoutes'
+import RichText from '@/app/components/commons/RichText'
 
 export function DefaultFooter() {
+  const t = useTranslations('components.pages.home.core.default_footer')
+  
+  const { landingPageRoutes, socialMediaLinks } = useRoutes()
+
   return (
     <footer
       id='contact'
@@ -20,7 +26,7 @@ export function DefaultFooter() {
 
           <ul className='flex transform-[translateX(-0.60rem)]'>
             {
-              socialMediaArr.map((socialMediaData, socialMediaIndex) => (
+              socialMediaLinks.map((socialMediaData, socialMediaIndex) => (
                 <li
                   key={`socialMediaKey${socialMediaIndex}`}
                 >
@@ -36,6 +42,10 @@ export function DefaultFooter() {
                       icon={socialMediaData.icon}
                       size='xl'
                     />
+
+                    <span className='sr-only'>
+                      { socialMediaData.title }
+                    </span>
                   </DefaultButton>
                 </li>
               ))
@@ -62,7 +72,9 @@ export function DefaultFooter() {
           </ul>
 
           <div className='p-4 bg-secondary/20 text-white/90 rounded-xl'>
-            Criado com <span className='font-bold'>React.js</span> e <span className='font-bold'>Next.js</span>
+            <RichText>
+              { (tags) => t.rich('built_with', tags) }
+            </RichText>
           </div>
         </div>
       </div>
