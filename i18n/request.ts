@@ -1,22 +1,9 @@
-import { headers } from 'next/headers'
 import { getRequestConfig } from 'next-intl/server'
 
-import { match } from '@formatjs/intl-localematcher'
-import Negotiator from 'negotiator'
-
-const acceptedLocales = ['en', 'pt-BR']
-const defaultLocale = 'pt-BR'
-
-async function getPreferredLocale() {
-  const headersList = await headers()
-
-  const preferredLanguages = new Negotiator({ headers: { 'accept-language': headersList.get('accept-language') ?? undefined } }).languages()
-  
-  return match(preferredLanguages, acceptedLocales, defaultLocale)
-}
+import { getCurrentLocale } from '@/app/utils/locale'
  
 export default getRequestConfig(async () => {
-  const locale = 'en' // await getPreferredLocale()
+  const locale = await getCurrentLocale()
  
   return {
     locale,

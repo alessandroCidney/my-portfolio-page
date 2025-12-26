@@ -16,5 +16,5 @@ export function useScroll(props: UseScrollProps) {
     return () => {
       window.removeEventListener('scroll', debouncedCheckScroll)
     }
-  }, [debouncedCheckScroll])
+  }, [debouncedCheckScroll, props])
 }

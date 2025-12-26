@@ -17,6 +17,7 @@ import { getScrollPosition } from '@/app/utils/scroll'
 import { DefaultButton } from '@/app/components/commons/DefaultButton'
 import { FloatingNavigationSidebar } from './components/FloatingNavigationSidebar'
 import { InlineNavigationBar } from './components/InlineNavigationBar'
+import { LanguageMenu } from './components/LanguageMenu'
 
 export function DefaultHeader() {
   const t = useTranslations('components.pages.home.core.default_header')
@@ -45,7 +46,7 @@ export function DefaultHeader() {
         ${userScrolledDown ? 'bg-white/95 backdrop-blur-lg shadow-sm text-primary' : 'text-white'}
 
         z-11
-      
+
         fixed
       
         w-full
@@ -71,6 +72,9 @@ export function DefaultHeader() {
           color='white'
           position='absolute'
           className='block lg:hidden z-3 right-2 top-1/2 transform-[translateY(-50%)]'
+          title={sidebarIsOpen ? t('actions.close_navigation_bar') : t('actions.open_navigation_bar')}
+          aria-controls='floating-navigation-sidebar'
+          aria-expanded={sidebarIsOpen}
           onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
         >
           <FontAwesomeIcon
@@ -92,19 +96,14 @@ export function DefaultHeader() {
           routes={landingPageRoutes}
         />
 
-        <div className='hidden lg:flex gap-2'>
-          <DefaultButton
-            title={t('actions.change_language')}
+        <div className='flex gap-2'>
+          <LanguageMenu
             color={userScrolledDown ? 'primary' : 'white'}
-            variant='text'
-            icon
-          >
-            <FontAwesomeIcon
-              icon={faLanguage}
-            />
-          </DefaultButton>
+            className='mr-12 lg:mr-0'
+          />
 
           <DefaultButton
+            className='hidden lg:flex'
             href={process.env.NEXT_PUBLIC_LINKEDIN_URL}
             target='_blank'
             link

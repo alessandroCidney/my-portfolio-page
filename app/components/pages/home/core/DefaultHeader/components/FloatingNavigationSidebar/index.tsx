@@ -29,6 +29,7 @@ export function FloatingNavigationSidebar({ open, setOpen, routes, className }: 
         {
           open && (
             <motion.div
+              id='floating-navigation-sidebar'
               className={`
                 z-2
                 fixed

@@ -8,7 +8,9 @@
 
             "actions": {
               "hire": "Contratar",
-              "change_language": "Alterar linguagem"
+              "change_language": "Alterar linguagem",
+              "open_navigation_bar": "Abrir barra de navegação",
+              "close_navigation_bar": "Fechar barra de navegação"
             },
 
             "components": {

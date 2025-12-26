@@ -7,7 +7,9 @@
             "title": "Portfolio<sr-only> of Alessandro Cídney - Web and Front-End Developer</sr-only>",
             "actions": {
               "hire": "Hire",
-              "change_language": "Change language"
+              "change_language": "Change language",
+              "open_navigation_bar": "Open navigation bar",
+              "close_navigation_bar": "Close navigation bar"
             },
             "components": {
               "floating_navigation_sidebar": {
