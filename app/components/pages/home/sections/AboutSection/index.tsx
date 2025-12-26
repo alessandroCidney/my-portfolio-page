@@ -17,7 +17,7 @@ export function AboutSection() {
         <Image
           src='/images/photos/me2.jpg'
           alt={t('images.selfie')}
-          className='rounded-full mx-auto border-solid border-6 border-transparent outline-8 outline-primary/10'
+          className='rounded-full mx-auto'
           width={600}
           height={800}
         />
