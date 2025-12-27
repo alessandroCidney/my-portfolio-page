@@ -67,12 +67,13 @@ export function DefaultHeader() {
         </h1>
       
         <DefaultButton
-          icon
+          id='floating-navigation-sidebar-activator'
+          title={sidebarIsOpen ? t('actions.close_navigation_bar') : t('actions.open_navigation_bar')}
+          className='block lg:hidden z-3 right-2 top-1/2 transform-[translateY(-50%)]'
+          position='absolute'
           variant='text'
           color='white'
-          position='absolute'
-          className='block lg:hidden z-3 right-2 top-1/2 transform-[translateY(-50%)]'
-          title={sidebarIsOpen ? t('actions.close_navigation_bar') : t('actions.open_navigation_bar')}
+          icon
           aria-controls='floating-navigation-sidebar'
           aria-expanded={sidebarIsOpen}
           onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
@@ -85,6 +86,8 @@ export function DefaultHeader() {
         </DefaultButton>
 
         <FloatingNavigationSidebar
+          menuId='floating-navigation-sidebar'
+          activatorId='floating-navigation-sidebar-activator'
           className='block lg:hidden'
           open={sidebarIsOpen}
           setOpen={setSidebarIsOpen}

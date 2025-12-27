@@ -2,7 +2,7 @@ import React, { Dispatch, ReactNode, SetStateAction, useCallback, useEffect, use
 
 import { AnimatePresence, motion } from 'motion/react'
 
-import { getKeyboardFocusableElements } from '@/app/utils/keyboard'
+import { useMenuKeyboard } from '@/app/hooks/useMenuKeyboard'
 
 interface FloatingMenuProps {
   open: boolean
@@ -42,20 +42,6 @@ export function FloatingMenu({
 
   const [menuTransform, setMenuTransform] = useState('')
 
-  function resetFocus() {
-    const documentActiveElement = document.activeElement as HTMLElement | null
-
-    if (documentActiveElement) {
-      documentActiveElement.blur()
-    }
-  }
-
-  function handleBlur(event: React.FocusEvent<HTMLDivElement>) {
-    if (!event.currentTarget.contains(event.relatedTarget) && open) {
-      // setOpen(false)
-    }
-  }
-
   function calculateMenuTransform() {
     if (activatorRef.current) {
       const activatorRect = activatorRef.current.getBoundingClientRect()
@@ -64,141 +50,21 @@ export function FloatingMenu({
     }
   }
 
-  const moveFocusToFirstElement = useCallback(() => {
-    const firstOption = document.querySelector<HTMLButtonElement>(`#${menuId} li button`)
+  const { handleOptionClick, handleMenuBlur } = useMenuKeyboard({
+    menuItemSelector: `#${menuId} li button`,
+    activatorSelector: `#${activatorId}`,
 
-    if (firstOption) {
-      firstOption.setAttribute('tabindex', '0')
-      firstOption.focus()
-    }
-  }, [menuId])
+    open,
+    setOpen,
 
-  const disableFocusOnCurrentElement = useCallback(() => {
-    const currentFocusedItem = document.querySelector<HTMLButtonElement>(`#${menuId} li button[tabindex="0"]`)
-
-    if (currentFocusedItem) {
-      currentFocusedItem.setAttribute('tabindex', '-1')
-    }
-  }, [menuId])
-
-  function handleOptionClick(selectedOption: string) {
-    disableFocusOnCurrentElement()
-
-    resetFocus()
-    
-    setOpen(false)
-
-    setOption(selectedOption)
-  }
-
-  const focusOnActivator = useCallback(() => {
-    disableFocusOnCurrentElement()
-
-    const activatorElement = document.querySelector<HTMLButtonElement>(`#${activatorId}`)
-
-    activatorElement?.focus()
-  }, [activatorId, disableFocusOnCurrentElement])
-
-  const focusOnElementOutsideMenu = useCallback((target: 'next' | 'previous') => {
-    const currentFocusedItem = document.querySelector<HTMLButtonElement>(`#${menuId} li button[tabindex="0"]`)
-
-    const focusableElements = getKeyboardFocusableElements()
-
-    const currentFocusedIndex = focusableElements.findIndex(el => el === currentFocusedItem)
-
-    disableFocusOnCurrentElement()
-
-    const targetIndex = target === 'next' ? currentFocusedIndex + 1 : currentFocusedIndex - 1
-
-    if (focusableElements[targetIndex]) {
-      focusableElements[targetIndex].focus()
-    } else if (focusableElements[0]) {
-      focusableElements[0].focus()
-    }
-
-    setOpen(false)
-  }, [disableFocusOnCurrentElement, menuId, setOpen])
-
-  const handleKeyDown = useCallback((event: KeyboardEvent) => {
-    // https://www.w3.org/WAI/ARIA/apg/patterns/menubar/
-    // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/menuitem_role#keyboard_interactions
-
-    event.preventDefault()
-
-    const allOptions = Array.from(document.querySelectorAll<HTMLButtonElement>(`#${menuId} li button`))
-
-    const focusedIndex = allOptions.findIndex(li => li.getAttribute('tabindex') === '0')
-
-    function moveFocusToIndex(newIndex: number) {
-      allOptions[newIndex].setAttribute('tabindex', '0')
-
-      if (focusedIndex !== newIndex) {
-        allOptions[focusedIndex].setAttribute('tabindex', '-1')
-      }
-
-      allOptions[newIndex].focus()
-    }
-
-    if (event.key === 'ArrowDown') {
-      const nextIndex = focusedIndex === allOptions.length - 1 ? 0 : focusedIndex + 1
-
-      moveFocusToIndex(nextIndex)
-
-      return
-    }
-
-    if (event.key === 'ArrowUp') {
-      const previousIndex = focusedIndex === 0 ? allOptions.length - 1 : focusedIndex - 1
-
-      moveFocusToIndex(previousIndex)
-
-      return
-    }
-
-    if (event.key === 'Escape') {
-      focusOnActivator()
-
-      setOpen(false)
-
-      return
-    }
-
-    if (event.key === 'Tab') {
-      focusOnElementOutsideMenu(event.shiftKey ? 'previous' : 'next')
-
-      return
-    }
-
-    if (event.key === 'Home') {
-      moveFocusToIndex(0)
-
-      return
-    }
-
-    if (event.key === 'End') {
-      moveFocusToIndex(allOptions.length - 1)
-
-      return
-    }
-
-    allOptions[focusedIndex].click()
-  }, [menuId, focusOnActivator, setOpen, focusOnElementOutsideMenu])
+    handleSelectOption: setOption,
+  })
 
   useEffect(() => {
     if (open) {
       calculateMenuTransform()
-
-      moveFocusToFirstElement()
-
-      window.addEventListener('keydown', handleKeyDown)
-    } else {
-      window.removeEventListener('keydown', handleKeyDown)
     }
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [handleKeyDown, open, moveFocusToFirstElement])
+  }, [open])
 
   return (
     <div
@@ -237,6 +103,8 @@ export function FloatingMenu({
               }}
               role='menu'
               aria-labelledby={activatorId}
+              tabIndex={-1}
+              onBlur={handleMenuBlur}
             >
               {
                 options.map((option, optionIndex) => (
