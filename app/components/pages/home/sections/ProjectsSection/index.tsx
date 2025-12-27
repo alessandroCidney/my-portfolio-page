@@ -57,7 +57,8 @@ export function ProjectsSection() {
           overflow-auto
 
           w-100vw
-          h-160
+          lg:h-160
+          h-140
 
           px-10
           pb-10

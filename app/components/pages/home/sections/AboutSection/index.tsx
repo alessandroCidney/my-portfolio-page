@@ -31,7 +31,7 @@ export function AboutSection() {
         }
       </p>
       
-      <div className='inline-block'>
+      <div className='lg:inline-block'>
         <DefaultButton
           href={process.env.NEXT_PUBLIC_LINKEDIN_URL}
           color='primary'

@@ -37,7 +37,8 @@ export function ProjectCard({
         opacity: 1,
       }}
       className={`
-        min-w-100
+        lg:min-w-100
+        min-w-90
         h-full
       
         p-6
@@ -60,7 +61,7 @@ export function ProjectCard({
       `}
     >
       <header className='relative flex items-center justify-center h-1/2 text-center whitespace-normal'>
-        <h3 className='transform-[translateY(48px)] text-6xl sm:text-7xl font-extrabold tracking-tight'>
+        <h3 className='transform-[translateY(48px)] text-6xl lg:text-7xl font-extrabold tracking-tight'>
           { title }
         </h3>
 

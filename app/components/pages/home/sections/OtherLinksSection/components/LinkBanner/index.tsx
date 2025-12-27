@@ -19,15 +19,15 @@ export function LinkBanner({ title, url, icon, gradientClass, textColorClass }: 
   const t = useTranslations('components.pages.home.sections.other_links')
 
   return (
-    <article className={`link-banner ${gradientClass} ${textColorClass} relative flex md:items-center justify-between p-9 md:p-12 rounded-4xl`}>
+    <article className={`link-banner ${gradientClass} ${textColorClass} relative flex md:items-center justify-between p-7 md:p-12 rounded-4xl`}>
       <div>
         <header className='mb-10 max-w-150'>
-          <h3 className='font-extrabold text-4xl md:text-6xl tracking-tight'>
+          <h3 className='w-[calc(100%-60px)] lg:w-auto font-extrabold text-3xl md:text-6xl tracking-tight'>
             { title }
           </h3>
         </header>
 
-        <div className='inline-block w-60'>
+        <div className='inline-block lg:w-60 w-full'>
           <DefaultButton
             href={url}
             color='white'
@@ -48,7 +48,7 @@ export function LinkBanner({ title, url, icon, gradientClass, textColorClass }: 
         </div>
       </div>
 
-      <div>
+      <div className='lg:relative absolute right-7'>
         <FontAwesomeIcon
           icon={icon}
           className='hidden! md:block!'

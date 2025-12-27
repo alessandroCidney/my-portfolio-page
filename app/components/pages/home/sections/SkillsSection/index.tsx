@@ -173,13 +173,13 @@ export function HardSkillsSection() {
                 transition-colors
 
                 md:px-8
-                px-4
+                px-6
 
                 md:h-20
-                h-12
+                h-14
 
                 md:text-2xl
-                text-base
+                text-lg
               `}
             >
               { skillData.title }
