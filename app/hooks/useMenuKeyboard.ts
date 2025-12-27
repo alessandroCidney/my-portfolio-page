@@ -84,7 +84,6 @@ export function useMenuKeyboard<SelectOptionParams>({
     const targetIndex = target === 'next' ? currentFocusedIndex + 1 : currentFocusedIndex - 1
 
     if (focusableElements[targetIndex]) {
-      console.log('test', focusableElements[targetIndex])
       focusableElements[targetIndex].focus()
     } else if (focusableElements[0]) {
       focusableElements[0].focus()
@@ -195,7 +194,6 @@ export function useMenuKeyboard<SelectOptionParams>({
 
 
   function handleOptionClick(...rest: SelectOptionParams[]) {
-    console.log('option click')
     disableFocusOnCurrentElement()
 
     resetFocus()
@@ -208,8 +206,6 @@ export function useMenuKeyboard<SelectOptionParams>({
   function handleMenuBlur(event: React.FocusEvent<HTMLElement>) {
     const menuIncludesFocusedItem = event.currentTarget.contains(event.relatedTarget)
     const activatorIsTheFocusedItem = event.relatedTarget === document.querySelector(activatorSelector)
-    
-    console.log('blur', event, menuIncludesFocusedItem, activatorIsTheFocusedItem)
 
     if (!menuIncludesFocusedItem && !activatorIsTheFocusedItem && open) {
       disableFocusOnCurrentElement()
@@ -222,12 +218,8 @@ export function useMenuKeyboard<SelectOptionParams>({
       moveFocusToFirstElement()
 
       window.addEventListener('keydown', handleKeyDown)
-
-      console.log('add keydown listener')
     } else {
       window.removeEventListener('keydown', handleKeyDown)
-
-      console.log('remove keydown listener')
     }
 
     return () => {

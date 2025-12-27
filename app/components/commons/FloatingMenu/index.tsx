@@ -41,14 +41,19 @@ export function FloatingMenu({
   const menuContentRef = useRef<HTMLUListElement>(null)
 
   const [menuTransform, setMenuTransform] = useState('')
+  const [readyToOpen, setReadyToOpen] = useState(false)
 
-  function calculateMenuTransform() {
+  const calculateMenuTransform = useCallback(() => {
     if (activatorRef.current) {
       const activatorRect = activatorRef.current.getBoundingClientRect()
 
       setMenuTransform(`translateX(calc(-100% + ${Math.floor(activatorRect.width)}px))`)
     }
-  }
+
+    if (!readyToOpen) {
+      setReadyToOpen(true)
+    }
+  }, [readyToOpen])
 
   const { handleOptionClick, handleMenuBlur } = useMenuKeyboard({
     menuItemSelector: `#${menuId} li button`,
@@ -61,10 +66,10 @@ export function FloatingMenu({
   })
 
   useEffect(() => {
-    if (open) {
+    if (open || !readyToOpen) {
       calculateMenuTransform()
     }
-  }, [open])
+  }, [calculateMenuTransform, open, readyToOpen])
 
   return (
     <div
@@ -74,60 +79,51 @@ export function FloatingMenu({
         { activator }
       </div>
 
-      <AnimatePresence>
+      <motion.ul
+        id={menuId}
+        ref={menuContentRef}
+        className={`
+          ${open && readyToOpen ? 'fixed' : 'hidden'}
+
+          bg-white
+
+          rounded-lg
+
+          shadow-xl
+        `}
+        style={{
+          transform: menuTransform,
+        }}
+        initial={{
+          opacity: 0,
+        }}
+        animate={{
+          opacity: 1,
+        }}
+        role='menu'
+        aria-labelledby={activatorId}
+        tabIndex={-1}
+        onBlur={handleMenuBlur}
+      >
         {
-          true && (
-            <motion.ul
-              id={menuId}
-              ref={menuContentRef}
-              className={`
-                ${open ? 'fixed' : 'hidden'}
-
-                bg-white
-
-                rounded-lg
-
-                shadow-xl
-              `}
-              style={{
-                transform: menuTransform,
-              }}
-              initial={{
-                opacity: 0,
-              }}
-              animate={{
-                opacity: 1,
-              }}
-              exit={{
-                opacity: 0,
-              }}
-              role='menu'
-              aria-labelledby={activatorId}
-              tabIndex={-1}
-              onBlur={handleMenuBlur}
+          options.map((option, optionIndex) => (
+            <li
+              key={`optionKey${optionIndex}`}
+              role='presentation'
             >
-              {
-                options.map((option, optionIndex) => (
-                  <li
-                    key={`optionKey${optionIndex}`}
-                    role='presentation'
-                  >
-                    <button
-                      id={`${menuId}-${option.id}`}
-                      className='p-4 w-full min-w-50 text-start cursor-pointer hover:bg-black/10 active:bg-black/20'
-                      role='menuitem'
-                      tabIndex={-1}
-                      onClick={() => handleOptionClick(option.id)}
-                    >
-                      { option.title }
-                    </button>
-                  </li>
-                ))
-              }
-            </motion.ul>
-          )
+              <button
+                id={`${menuId}-${option.id}`}
+                className='p-4 w-full min-w-50 text-start cursor-pointer hover:bg-black/10 active:bg-black/20'
+                role='menuitem'
+                tabIndex={-1}
+                onClick={() => handleOptionClick(option.id)}
+              >
+                { option.title }
+              </button>
+            </li>
+          ))
         }
-      </AnimatePresence>
+      </motion.ul>
     </div>
   )
 }
