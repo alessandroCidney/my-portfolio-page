@@ -55,7 +55,7 @@ export function ScrollTimeline() {
       job: t('mid_front_end_developer.title'),
       time: t('mid_front_end_developer.time'),
       company: t('mid_front_end_developer.company'),
-      descriptionList: generateExperienceItems('mid_front_end_developer', 6),
+      descriptionList: generateExperienceItems('mid_front_end_developer', 5),
     },
     {
       job: t('junior_front_end_developer.title'),
@@ -67,7 +67,7 @@ export function ScrollTimeline() {
       job: t('front_end_trainee.title'),
       time: t('front_end_trainee.time'),
       company: t('front_end_trainee.company'),
-      descriptionList: generateExperienceItems('front_end_trainee', 3),
+      descriptionList: generateExperienceItems('front_end_trainee', 2),
     },
   ]
 

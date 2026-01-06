@@ -112,12 +112,11 @@
                 "time": "2024 - 2025",
                 "company": "SantoDigital",
                 "description_list": {
-                  "item_1": "Participação na implementação de mais de 30 páginas e centenas de funcionalidades, contribuindo para o atingimento de metas e satisfação dos clientes da empresa.",
-                  "item_2": "Criação de 2 SDKs de integração para sistemas complexos da empresa, facilitando a integração dos serviços com sistemas de clientes.",
-                  "item_3": "Participação em uma reformulação completa no design de produtos visando à atender clientes voltados à área da saúde.",
-                  "item_4": "Implementação de diversas melhorias e atualizações no CI/CD de 5 projetos complexos, acelerando o deploy de aplicações e deixando os pipelines de implantação mais eficientes e robustos.",
-                  "item_5": "Correção de dezenas de bugs em sistemas internos, promovendo a estabilidade de operação dos sistemas da empresa.",
-                  "item_6": "Supervisão e orientação de desenvolvedores júnior e estagiários, contribuindo para o treinamento de novos profissionais experientes para a empresa e para o mercado."
+                  "item_1": "Participação na implementação de mais de 30 páginas e centenas de funcionalidades em 5 grandes projetos, contribuindo para o atingimento de 100% das metas semestrais durante todo o período do cargo;",
+                  "item_2": "Criação de 2 SDKs de integração para sistemas complexos da empresa, possibilitando uma integração mais ágil dos serviços e produtos com sistemas de 3 grandes clientes;",
+                  "item_3": "Implementação de diversas melhorias e atualizações no CI/CD, acelerando o deploy de aplicações de 5 grandes projetos complexos;",
+                  "item_4": "Empenho na correção de bugs e melhoria de estabilidade dos projetos, realizando a correção de centenas de erros de funcionamento em sistemas internos;",
+                  "item_5": "Supervisão e orientação de desenvolvedores júnior e estagiários, contribuindo para o treinamento de 2 novos profissionais."
                 }
               },
 
@@ -126,9 +125,9 @@
                 "time": "2022 - 2023",
                 "company": "SantoDigital",
                 "description_list": {
-                  "item_1": "Participação na implementação de mais de 30 páginas e centenas de funcionalidades, contribuindo para o atingimento de metas e satisfação dos clientes da empresa.",
-                  "item_2": "Adaptação de 2 projetos internos para a arquitetura micro-frontend em conjunto com a construção e utilização de um sistema de SSO (Single Sign-On)",
-                  "item_3": "Correção de dezenas de bugs em sistemas internos, promovendo a estabilidade de operação dos sistemas da empresa."
+                  "item_1": "Modernização dos produtos da empresa para a Arquitetura Micro Front-End, com criação de sistema de Single Sign-On (SSO) e migração e evolução de 3 grandes projetos;",
+                  "item_2": "Desenvolvimento de mais de 20 páginas e centenas de funcionalidades em 3 grandes projetos, contribuindo para o atingimento de 100% das metas semestrais durante todo o período do cargo;",
+                  "item_3": "Empenho na correção de bugs e melhoria de estabilidade dos projetos, realizando a correção de dezenas de erros de funcionamento em sistemas internos."
                 }
               },
 
@@ -137,9 +136,8 @@
                 "time": "2021 - 2022",
                 "company": "SantoDigital",
                 "description_list": {
-                  "item_1": "Participação na implementação de melhorias em dezenas de páginas de produtos da empresa, contribuindo para a expansão do conjunto de serviços ofertados pela empresa.",
-                  "item_2": "Correção de dezenas de bugs em sistemas internos, promovendo a estabilidade de operação dos sistemas da empresa.",
-                  "item_3": "Realização de reformulação completa no design de um dos produtos principais da empresa, promovendo melhorias de UI/UX em colaboração com designers profissionais."
+                  "item_1": "Participação na implementação de melhorias em dezenas de páginas de produtos da empresa, contribuindo para o aprimoramento de 3 grandes produtos;",
+                  "item_2": "Contribuição na reformulação completa do design de um dos produtos principais da empresa, promovendo dezenas de melhorias de UI/UX em colaboração com designers profissionais."
                 }
               }
             }

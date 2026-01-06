@@ -93,32 +93,32 @@
                 "time": "2024 - 2025",
                 "company": "SantoDigital",
                 "description_list": {
-                  "item_1": "Participated in the implementation of over 30 pages and hundreds of features, contributing to achieving company goals and customer satisfaction.",
-                  "item_2": "Created 2 integration SDKs for complex company systems, facilitating service integration with client systems.",
-                  "item_3": "Participated in a complete product design overhaul aimed at serving clients in the healthcare sector.",
-                  "item_4": "Implemented multiple improvements and updates to CI/CD pipelines across 5 complex projects, accelerating application deployment and making deployment pipelines more efficient and robust.",
-                  "item_5": "Fixed dozens of bugs in internal systems, promoting operational stability across company systems.",
-                  "item_6": "Supervised and mentored junior developers and interns, contributing to the training of new professionals for the company and the market."
+                  "item_1": "Participation in the implementation of more than 30 pages and hundreds of features across 5 large projects, contributing to the achievement of 100% of the semiannual goals throughout the entire period of the role;",
+                  "item_2": "Creation of 2 integration SDKs for complex company systems, enabling faster integration of services and products with the systems of 3 major clients;",
+                  "item_3": "Implementation of several improvements and updates in CI/CD, accelerating the deployment of applications for 5 large and complex projects;",
+                  "item_4": "Commitment to bug fixing and improvement of project stability, carrying out the correction of hundreds of functional errors in internal systems;",
+                  "item_5": "Supervision and guidance of junior developers and interns, contributing to the training of 2 new professionals."
                 }
               },
+
               "junior_front_end_developer": {
                 "title": "Junior Front-End Developer",
                 "time": "2022 - 2023",
                 "company": "SantoDigital",
                 "description_list": {
-                  "item_1": "Participated in the implementation of over 30 pages and hundreds of features, contributing to achieving company goals and customer satisfaction.",
-                  "item_2": "Adapted 2 internal projects to a micro-frontend architecture alongside the construction and use of an SSO (Single Sign-On) system.",
-                  "item_3": "Fixed dozens of bugs in internal systems, promoting operational stability across company systems."
+                  "item_1": "Modernization of the company’s products to a Micro Front-End Architecture, including the creation of a Single Sign-On (SSO) system and the migration and evolution of 3 large projects;",
+                  "item_2": "Development of more than 20 pages and hundreds of features across 3 large projects, contributing to the achievement of 100% of the semiannual goals throughout the entire period of the role;",
+                  "item_3": "Commitment to bug fixing and improvement of project stability, carrying out the correction of dozens of functional errors in internal systems."
                 }
               },
+
               "front_end_trainee": {
                 "title": "Front-End Development Intern",
                 "time": "2021 - 2022",
                 "company": "SantoDigital",
                 "description_list": {
-                  "item_1": "Participated in the implementation of improvements across dozens of company product pages, contributing to the expansion of the company’s service offerings.",
-                  "item_2": "Fixed dozens of bugs in internal systems, promoting operational stability across company systems.",
-                  "item_3": "Carried out a complete redesign of one of the company’s main products, promoting UI/UX improvements in collaboration with professional designers."
+                  "item_1": "Participation in the implementation of improvements on dozens of company product pages, contributing to the enhancement of 3 large products;",
+                  "item_2": "Contribution to the complete redesign of one of the company’s main products, promoting dozens of UI/UX improvements in collaboration with professional designers."
                 }
               }
             }
