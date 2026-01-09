@@ -20,8 +20,9 @@ export function HardSkillsSection() {
     { title: 'TypeScript' },
 
     { title: 'React.js' },
-    { title: 'Next.js' },
     { title: 'Vue.js' },
+    { title: 'Angular' },
+    { title: 'Next.js' },
     { title: 'Nuxt.js' },
     { title: 'Vuetify' },
 
