@@ -4,7 +4,7 @@
       "home": {
         "core": {
           "default_header": {
-            "title": "Portfolio<sr-only> of Alessandro Cídney - Web and Front-End Developer</sr-only>",
+            "title": "Portfolio<sr-only> of Alessandro Cídney - Web and Full Stack Developer</sr-only>",
             "actions": {
               "hire": "Hire",
               "change_language": "Change language",
@@ -27,7 +27,7 @@
         "sections": {
           "hero": {
             "title": "Introduction",
-            "large_description": "<small-text>Hello! My name is <bold-text>Alessandro Cídney</bold-text> and I am a</small-text> <giant-text>Web and Front-End Developer</giant-text>",
+            "large_description": "<small-text>Hello! My name is <bold-text>Alessandro Cídney</bold-text> and I am a</small-text> <giant-text>Web and Full Stack Developer</giant-text>",
             "small_description": "I have over 3 years of experience creating websites, interfaces, and robust and efficient systems. My main mission is to help companies and clients achieve their goals and objectives while continuously growing professionally.",
             "images": {
               "portrait": "Portrait of Alessandro Cídney"
@@ -76,7 +76,7 @@
           "about_me": {
             "title": "About me",
             "subtitle": "Get to know my story",
-            "content": "My name is Alessandro Cídney, and I am a web and front-end developer with over 3 years of experience contributing to the development of several systems and websites.<line-break></line-break>Throughout my career, I have worked alongside multiple front-end and back-end developers, machine learning engineers, designers, and stakeholders, always aiming to implement the best solutions to meet client demands and user needs.<line-break></line-break>Over the course of my journey, I worked on several projects, with the three main ones being large projects at SantoDigital: Santo iD, an automated document analysis and information processing system; Santo AI, a robust AI assistant with multiple features; and Santo iD Health, a version of Santo iD focused on serving clients in the healthcare sector, with several features tailored to that area.<line-break></line-break>In addition, I also contributed to the implementation of pages and improvements across various client systems, intranets, and chatbots.<line-break></line-break>Finally, I assisted in the analysis and development of prototypes and designs using Figma, as well as supervising junior developers and interns, performing code reviews, providing guidance, and always promoting best development practices.<line-break></line-break>What do you think about working together on your next project and taking it to the next level?",
+            "content": "My name is Alessandro Cídney, and I am a developer with over 3 years of experience contributing to the development of several systems and websites.<line-break></line-break>Throughout my career, I have worked alongside multiple front-end and back-end developers, machine learning engineers, designers, and stakeholders, always aiming to implement the best solutions to meet client demands and user needs.<line-break></line-break>Over the course of my journey, I worked on several projects, with the three main ones being large projects at SantoDigital: Santo iD, an automated document analysis and information processing system; Santo AI, a robust AI assistant with multiple features; and Santo iD Health, a version of Santo iD focused on serving clients in the healthcare sector, with several features tailored to that area.<line-break></line-break>In addition, I also contributed to the implementation of pages and improvements across various client systems, intranets, and chatbots.<line-break></line-break>Finally, I assisted in the analysis and development of prototypes and designs using Figma, as well as supervising junior developers and interns, performing code reviews, providing guidance, and always promoting best development practices.<line-break></line-break>What do you think about working together on your next project and taking it to the next level?",
             "images": {
               "selfie": "Selfie of Alessandro Cídney"
             },
