@@ -19,6 +19,12 @@ export function HardSkillsSection() {
     { title: 'JavaScript' },
     { title: 'TypeScript' },
 
+    { title: 'Node.js' },
+    { title: 'Express' },
+
+    { title: 'Python' },
+    { title: 'FastAPI' },
+
     { title: 'React.js' },
     { title: 'Vue.js' },
     { title: 'Angular' },
@@ -30,10 +36,8 @@ export function HardSkillsSection() {
     { title: 'CSS3' },
     { title: 'Sass / Scss' },
 
-    { title: 'Node.js' },
     { title: 'MongoDB' },
     { title: 'MySQL' },
-    { title: 'Express' },
     { title: 'Docker' },
     { title: 'Webpack' },
 
